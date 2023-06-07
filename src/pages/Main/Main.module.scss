@@ -4,59 +4,59 @@
     display: flex;
     justify-content: center;
 
-    .main_mainForm {
-        width: 900px;
-        height: 704px;
-        background-color: var(--form-bg-color);
-        margin-top: var(--default-padding);
-        padding: 0 var(--default-padding) var(--default-padding);
+    .container {
+        width: 1400px;
+        display: flex;
+        justify-content: center;
 
-        .mainForm_header {
-            height: 129px;
-            border-bottom: 1px solid #e5e5e5;
-            display: flex;
-            align-items: center;
-            gap: var(--default-padding);
+        .main_mainForm {
+            width: 900px;
+            height: 704px;
+            background-color: var(--form-bg-color);
+            margin-top: var(--default-padding);
+            padding: 0 var(--default-padding) var(--default-padding);
 
-            //.header_avatar {
-            //    width: 80px;
-            //    height: 80px;
-            //    background-color: #D5E4F7;
-            //    border-radius: 50%;
-            //    @include flexCenter;
-            //}
-            .header_info {
+            .mainForm_header {
+                height: 129px;
+                border-bottom: 1px solid #e5e5e5;
                 display: flex;
-                flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                gap: var(--default-padding);
 
-                .header_infoName {
-                    font-size: 20px;
-                    font-weight: 600;
-                    line-height: 26px;
-                    margin-bottom: 8px;
-                }
-                .header_infoContacts {
+                .header_info {
                     display: flex;
-                    gap: 18px;
+                    flex-direction: column;
+                    align-items: flex-start;
 
-                    .contactItem {
+                    .header_infoName {
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 26px;
+                        margin-bottom: 8px;
+                    }
+                    .header_infoContacts {
                         display: flex;
-                        gap: 5px;
+                        gap: 18px;
 
-                        .contactItem_icon {
+                        .contactItem {
+                            display: flex;
+                            gap: 5px;
 
-                        }
-                        .contactItem_link {
-                            color: #5558FA;
-                            font-size: 12px;
+                            .contactItem_icon {
+
+                            }
+                            .contactItem_link {
+                                color: #5558FA;
+                                font-size: 12px;
+                            }
                         }
                     }
                 }
             }
-        }
-        .mainForm_form {
-            margin-top: var(--default-padding);
+
+            .mainForm_form {
+                margin-top: var(--default-padding);
+            }
         }
     }
 }

@@ -1,0 +1,79 @@
+// инпут
+.inputWrapper {
+    width: 100%;
+}
+
+// дефолтные стили для инпута
+.customInputDefault {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+.customInputDefault::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+// дефолтный инпут белого цвета
+.customInput {
+    composes: customInputDefault;
+    border: 1px solid white;
+    color: white;
+    opacity: 0.7;
+}
+.customInput:focus-visible {
+    border: 1px solid white;
+    outline: none;
+    opacity: 1;
+}
+.customInput:hover {
+    opacity: 1;
+}
+
+// дефолтный инпут чёрного цвета
+.customInputBlack {
+    composes: customInputDefault;
+    border: 1px solid black;
+    color: black;
+    opacity: 0.7;
+}
+.customInputBlack::placeholder {
+    color: black;
+    opacity: 0.7;
+}
+.customInputBlack:focus-visible {
+    border: 1px solid black;
+    outline: none;
+    opacity: 1;
+}
+.customInputBlack:hover {
+    opacity: 1;
+}
+
+// стили для ошибок
+.errorWrapper {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: red;
+}
+.errorHelperText {
+    composes: errorWrapper;
+}
+.error {
+    color: red;
+    height: 20px;
+}
+.error:focus-visible {
+
+}
+.errorInput {
+    border: 1px solid red;
+    outline: none;
+}
+.errorInput:focus-visible {
+    border: 1px solid red;
+}

@@ -3,7 +3,10 @@ import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
 import FolderIcon from '../../shared/assets/icons/folder-icon.svg'
 import {SubmitHandler, useForm} from 'react-hook-form'
+import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import {validationTitles} from '../../shared/utils/validation-titles'
+import {Input} from '../../shared/ui/Input/Input'
 
 type ContactsType = {
     id: number
@@ -22,58 +25,59 @@ export const Main = () => {
         {id: 3, title: 'Resume', link: 'https://my-portfolio-app-beryl.vercel.app/'},
     ]
 
-    const ForgotSchema = yup.object().shape({
-        email: yup.string().required(t('Err_Yup_Required')).email(t('Err_Yup_Email'))
-        // recaptcha: yup.boolean().oneOf([true], t('Robot'))
+    const MainSchema = yup.object().shape({
+        phone: yup.string().required(validationTitles.required),
+        email: yup.string().required(validationTitles.required).email(validationTitles.email),
     })
 
     const {
         control,
         handleSubmit,
-        setValue,
-        formState: { errors }
+        formState: {errors}
     } = useForm<any>({
         defaultValues: {
-            email: '',
-            recaptcha: ''
+            phone: '',
+            email: ''
         },
-        resolver: yupResolver(ForgotSchema)
+        resolver: yupResolver(MainSchema)
     })
 
     const onSubmit: SubmitHandler<any> = async (data: any) => {
-        // code
+        // code here
     }
 
     return (
         <div className={s.main_mainBox}>
-            <form className={s.main_mainForm}>
-                <div className={s.mainForm_header}>
-                    <Avatar lastName={lastName} firstName={firstName}/>
-                    <div className={s.header_info}>
-                        <div className={s.header_infoName}>
-                            {lastName} {firstName}
-                        </div>
-                        <div className={s.header_infoContacts}>
-                            {
-                                contacts.map(c => {
-                                    return (
-                                        <div key={c.id} className={s.contactItem}>
-                                            <div className={s.contactItem_icon}>
-                                                <img src={FolderIcon} alt='folder-icon' />
+            <div className={s.container}>
+                <div className={s.main_mainForm}>
+                    <div className={s.mainForm_header}>
+                        <Avatar lastName={lastName} firstName={firstName}/>
+                        <div className={s.header_info}>
+                            <div className={s.header_infoName}>
+                                {lastName} {firstName}
+                            </div>
+                            <div className={s.header_infoContacts}>
+                                {
+                                    contacts.map(c => {
+                                        return (
+                                            <div key={c.id} className={s.contactItem}>
+                                                <div className={s.contactItem_icon}>
+                                                    <img src={FolderIcon} alt="folder-icon"/>
+                                                </div>
+                                                <div className={s.contactItem_link}>
+                                                    <a href={c.link} target="_blank">{c.title}</a>
+                                                </div>
                                             </div>
-                                            <div className={s.contactItem_link}>
-                                                <a href={c.link} target='_blank'>{c.title}</a>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
+                    <form className={s.mainForm_form} onSubmit={handleSubmit(onSubmit)}>
+                        <Input/>
+                    </form>
                 </div>
-                <form className={s.mainForm_form} onSubmit={handleSubmit(onSubmit)}>
-                    5
-                </form>
             </div>
         </div>
     )

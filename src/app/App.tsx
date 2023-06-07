@@ -1,10 +1,10 @@
-import React from 'react';
-import './App.css';
-import {Navigate, Route, Routes } from 'react-router-dom';
-import {RoutePaths} from '../shared/api/paths';
-import {Error404} from '../pages/Error404/Error404';
-import {Main} from '../pages/Main/Main';
-import {FormPage} from '../pages/FormPage/FormPage';
+import React from 'react'
+import './App.css'
+import {Navigate, Route, Routes } from 'react-router-dom'
+import {RoutePaths} from '../shared/api/paths'
+import {Error404} from '../pages/Error404/Error404'
+import {Main} from '../pages/Main/Main'
+import {FormPage} from '../pages/FormPage/FormPage'
 
 export const App = () => {
     return (
