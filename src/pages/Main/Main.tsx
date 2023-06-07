@@ -2,6 +2,8 @@ import React from 'react'
 import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
 import FolderIcon from '../../shared/assets/icons/folder-icon.svg'
+import {SubmitHandler, useForm} from 'react-hook-form'
+import * as yup from 'yup'
 
 type ContactsType = {
     id: number
@@ -20,9 +22,31 @@ export const Main = () => {
         {id: 3, title: 'Resume', link: 'https://my-portfolio-app-beryl.vercel.app/'},
     ]
 
+    const ForgotSchema = yup.object().shape({
+        email: yup.string().required(t('Err_Yup_Required')).email(t('Err_Yup_Email'))
+        // recaptcha: yup.boolean().oneOf([true], t('Robot'))
+    })
+
+    const {
+        control,
+        handleSubmit,
+        setValue,
+        formState: { errors }
+    } = useForm<any>({
+        defaultValues: {
+            email: '',
+            recaptcha: ''
+        },
+        resolver: yupResolver(ForgotSchema)
+    })
+
+    const onSubmit: SubmitHandler<any> = async (data: any) => {
+        // code
+    }
+
     return (
         <div className={s.main_mainBox}>
-            <div className={s.main_mainForm}>
+            <form className={s.main_mainForm}>
                 <div className={s.mainForm_header}>
                     <Avatar lastName={lastName} firstName={firstName}/>
                     <div className={s.header_info}>
@@ -47,9 +71,9 @@ export const Main = () => {
                         </div>
                     </div>
                 </div>
-                <div className={s.mainForm_form}>
+                <form className={s.mainForm_form} onSubmit={handleSubmit(onSubmit)}>
                     5
-                </div>
+                </form>
             </div>
         </div>
     )
