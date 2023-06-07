@@ -1,3 +1,7 @@
 .App {
-  text-align: center;
+    text-align: center;
+    /*max-width: var(--layout-width);*/
+    margin: 0 auto;
+    height: 100vh;
+    background-color: var(--app-bg-color);
 }

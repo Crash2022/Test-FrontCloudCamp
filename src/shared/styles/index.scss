@@ -16,6 +16,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'SB Sans Interface', sans-serif;
 }
 
 a {
@@ -40,8 +41,11 @@ input:-webkit-autofill:focus {
     /*-----------------!* heights & sizes *!----------------*/
 
     --layout-width: 1400px;
-    --default-container-padding: 40px 60px 0 60px;
+    --app-bg-color: #F4F4F5;
+    --form-bg-color: #FFFFFF;
+    //--snippet-border: rgb(255 255 255 / 16%);
 
+    --default-padding: 24px;
     --default-Modal-Margin: 12px 24px;
 
     --default-Extra-Small-Margin: 5px;
