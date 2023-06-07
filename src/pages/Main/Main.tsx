@@ -7,7 +7,6 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import {validationTitles} from '../../shared/utils/validation-titles'
 import {Input} from '../../shared/ui/Input/Input'
-import {ControlledInput} from '../../shared/ui/Controlled/ControlledInput';
 import {Button} from '../../shared/ui/Button/Button';
 
 type ContactsType = {
@@ -28,7 +27,7 @@ export const Main = () => {
     ]
 
     const MainSchema = yup.object().shape({
-        phone: yup.string().required(validationTitles.required),
+        phone: yup.number().required(validationTitles.required),
         email: yup.string().required(validationTitles.required).email(validationTitles.email),
     })
 
@@ -92,6 +91,7 @@ export const Main = () => {
                                         id={'main-form-phone'}
                                         // placeholder={'Номер телефона'}
                                         placeholderTitle={'Номер телефона'}
+                                        error={errors.phone?.message}
                                     />
                                 )}
                             />
@@ -106,13 +106,13 @@ export const Main = () => {
                                         id={'main-form-email'}
                                         // placeholder={'Email'}
                                         placeholderTitle={'Email'}
+                                        error={errors.email?.message}
                                     />
                                 )}
                             />
                         </div>
                         <Button
                             id={'button-start'}
-                            // className={styles.btn}
                             theme={'primary'}
                             type={'submit'}
                         >

@@ -1,5 +1,4 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes,
-    KeyboardEvent, ReactNode} from 'react'
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from 'react'
 import s from './Input.module.scss'
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
@@ -8,7 +7,7 @@ type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
     onChangeText?: (value: string) => void
     onEnter?: () => void
-    error?: ReactNode
+    error?: any
     helperText?: string
     divClassName?: string
     spanClassName?: string

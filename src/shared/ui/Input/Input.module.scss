@@ -3,7 +3,7 @@
 }
 
 .customInput {
-    //width: 100%;
+    display: flex;
     width: 400px;
     height: 44px;
     background-color: var(--default-gray-color-light);
@@ -27,6 +27,16 @@
     opacity: 1;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--default-gray-color-dark);
+}
+
+// плейсхолдер
 .placeholder_title {
     margin-bottom: 8px;
     text-align: left;
@@ -37,8 +47,9 @@
 
 // стили для ошибок
 .errorWrapper {
+    text-align: left;
     padding-top: 5px;
-    padding-left: 10px;
+    //padding-left: 10px;
     font-size: 14px;
     color: red;
 }
