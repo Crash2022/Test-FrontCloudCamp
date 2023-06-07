@@ -12,7 +12,7 @@ type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
     helperText?: string
     divClassName?: string
     spanClassName?: string
-    color?: 'black'
+    placeholderTitle?: string
 }
 
 // @ts-ignore
@@ -24,43 +24,37 @@ export const Input: React.FC<SuperInputTextPropsType> = React.forwardRef((
         onEnter,
         error,
         helperText, // error для Controlled InputUI (React Hook Forms)
-        className,
         divClassName,
         spanClassName,
-        color,
-        id,
+        className,
+        placeholderTitle,
 
-        ...restProps // все остальные пропсы попадут в объект restProps
+        ...restProps
     }, forwardRef
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         onChange
         && onChange(e)
-
         onChangeText && onChangeText(e.currentTarget.value)
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
-        onKeyPress && onKeyPress(e);
-
-        onEnter
-        && e.key === 'Enter'
-        && onEnter()
+        onKeyPress && onKeyPress(e)
+        onEnter && e.key === 'Enter' && onEnter()
     }
 
-    // чтобы изменить инпут на чёрный цвет, необходимо передать className={customInputBlack}
     // чтобы изменить стандартный див инпута, необходимо передать divClassName={your_className}
     const finalInputDivWrapperClassName = `${divClassName ? divClassName : s.inputWrapper}`
-
-    const finalInputClassName = `${error ? s.errorInput : ''} 
-        ${className ? className : s.customInput}
-        ${color === 'black' ? s.customInputBlack : ''}`
-
+    const finalInputClassName = `${error ? s.errorInput : ''} ${className ? className : s.customInput}`
     const finalSpanClassName = `${error ? s.error : ''} ${spanClassName ? spanClassName : ''}`
 
     return (
         <div className={finalInputDivWrapperClassName}>
+
+            {
+                placeholderTitle && <div className={s.placeholder_title}>{placeholderTitle}</div>
+            }
+
             <input
-                id={id}
                 type={'text'}
                 onChange={onChangeCallback}
                 onKeyPress={onKeyPressCallback}

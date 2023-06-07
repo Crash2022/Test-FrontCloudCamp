@@ -2,11 +2,13 @@ import React from 'react'
 import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
 import FolderIcon from '../../shared/assets/icons/folder-icon.svg'
-import {SubmitHandler, useForm} from 'react-hook-form'
+import {Controller, SubmitHandler, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import {validationTitles} from '../../shared/utils/validation-titles'
 import {Input} from '../../shared/ui/Input/Input'
+import {ControlledInput} from '../../shared/ui/Controlled/ControlledInput';
+import {Button} from '../../shared/ui/Button/Button';
 
 type ContactsType = {
     id: number
@@ -75,7 +77,47 @@ export const Main = () => {
                         </div>
                     </div>
                     <form className={s.mainForm_form} onSubmit={handleSubmit(onSubmit)}>
-                        <Input/>
+                        {/*<ControlledInput name={'phone'}*/}
+                        {/*                 placeholder={'Номер телефона'}*/}
+                        {/*                 control={control}*/}
+                        {/*/>*/}
+
+                        <div className={s.form_phone}>
+                            <Controller
+                                name={'phone'}
+                                control={control}
+                                render={({ field }) => (
+                                    <Input
+                                        {...field}
+                                        id={'main-form-phone'}
+                                        // placeholder={'Номер телефона'}
+                                        placeholderTitle={'Номер телефона'}
+                                    />
+                                )}
+                            />
+                        </div>
+                        <div className={s.form_email}>
+                            <Controller
+                                name={'email'}
+                                control={control}
+                                render={({ field }) => (
+                                    <Input
+                                        {...field}
+                                        id={'main-form-email'}
+                                        // placeholder={'Email'}
+                                        placeholderTitle={'Email'}
+                                    />
+                                )}
+                            />
+                        </div>
+                        <Button
+                            id={'button-start'}
+                            // className={styles.btn}
+                            theme={'primary'}
+                            type={'submit'}
+                        >
+                            Начать
+                        </Button>
                     </form>
                 </div>
             </div>

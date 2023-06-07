@@ -6,7 +6,7 @@ import clsx from 'clsx'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     divClassName?: string
     className?: string
-    theme?: 'primary' | 'primaryWhite' | 'outline' | 'clear'
+    theme?: 'primary' | 'outline'
 }
 
 export const Button = memo((props: PropsWithChildren<ButtonProps>) => {

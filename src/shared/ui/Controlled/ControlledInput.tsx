@@ -6,31 +6,30 @@ import {Input} from '../Input/Input'
 interface ControlledInputProps {
     name: string
     placeholder: string
-    password?: boolean
-    control: UseFormReturn<any, any, any>
+    control: UseFormReturn<any>
     rules?: Omit<
         RegisterOptions<any, any>,
         'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
     >
+    type?: string
     error?: any
     disabled?: boolean
     divClassName?: any
-    type?: string
 }
 
-export const ControlledInput = ({ name, placeholder, password, control, rules, error,
+export const ControlledInput = ({ name, placeholder, control, rules, error,
                                     disabled, divClassName, type }: ControlledInputProps) => {
 
     return (
         <div className={divClassName}>
             <Controller
                 name={name}
-                control={control}
+                control={control.control}
                 rules={rules}
                 render={({field}: any) => (
                     <Input
                         {...field}
-                        password={password ?? false}
+                        type={type}
                         placeholder={placeholder}
                         value={field.value}
                         onChange={(value) => {
@@ -38,7 +37,6 @@ export const ControlledInput = ({ name, placeholder, password, control, rules, e
                         }}
                         error={error}
                         disabled={disabled ?? false}
-                        type={type}
                     />
                 )}
             />

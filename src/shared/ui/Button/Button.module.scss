@@ -3,17 +3,18 @@
 .button {
     cursor: pointer;
     border: none;
-    padding: 6px 24px;
-    height: 36px;
-    border-radius: 2px;
+    padding: 12px 16px;
+    height: 44px;
+    border-radius: 4px;
     transition: 0.2s;
     @include h3-text-size;
-    text-align: center; // для ButtonLink
 }
+
+// стандартная
 
 .primary {
     color: var(--light-100);
-    background-color: var(--primary-500);
+    background-color: #5558FA;
 
     &:hover {
         background-color: var(--primary-100);
@@ -35,28 +36,7 @@
     }
 }
 
-.primaryWhite {
-    color: var(--dark-900);
-    background-color: var(--light-100);
-
-    &:hover {
-        color: var(--dark-300);
-    }
-
-    &:disabled {
-        background-color: var(--light-900);
-        color: var(--dark-100);
-    }
-
-    &:active {
-        background-color: var(--light-700);
-        color: var(--dark-900);
-    }
-
-    &:focus {
-        outline: solid var(--primary-700) 1px;
-    }
-}
+// прозрачная
 
 .outline {
     border: 1px solid var(--primary-500);
@@ -80,27 +60,5 @@
 
     &:focus {
         outline: solid var(--primary-700) 1px;
-    }
-}
-
-.clear {
-    border: none;
-    background: none;
-    color: var(--primary-500);
-
-    &:hover {
-        color: var(--primary-100);
-    }
-
-    &:disabled {
-        color: var(--primary-900);
-    }
-
-    &:active {
-        color: var(--primary-700);
-    }
-
-    &:focus {
-        outline: solid var(--primary-700) 2px;
     }
 }

@@ -133,12 +133,12 @@
 
 @mixin divDefaultSmallMarginBottom() {
     > div:not(:last-child) {
-        margin-bottom: 10px;
+        margin-bottom: calc(var(--default-padding) / 2);
     }
 }
 
 @mixin divDefaultLargeMarginBottom() {
     > div:not(:last-child) {
-        margin-bottom: 20px;
+        margin-bottom: var(--default-padding);
     }
 }

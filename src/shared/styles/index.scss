@@ -30,8 +30,12 @@ input:-webkit-autofill:focus {
     --app-bg-color: #F4F4F5;
     --form-bg-color: #FFFFFF;
 
+    --default-gray-color-light: #f5f5f5;
+    --default-gray-color-medium: #cecece;
+    --default-gray-color-dark: #808080;
+
     --default-padding: 24px;
-    --default-Modal-Margin: 12px 24px;
+    --default-modal-padding: 12px 24px;
 
     --default-Extra-Small-Margin: 5px;
     --default-Small-Margin: 10px;
@@ -68,6 +72,13 @@ input:-webkit-autofill:focus {
     --warning-700: #996600;
     --warning-900: #664400;
 
+    /* light */
+    --light-100: #ffffff;
+    --light-300: #f7fbff;
+    --light-500: #edf3fa;
+    --light-700: #d5dae0;
+    --light-900: #bdc1c7;
+
     /* dark */
     --dark-100: #747d86;
     --dark-300: #333333;
@@ -75,13 +86,6 @@ input:-webkit-autofill:focus {
     --dark-500-2: #171717;
     --dark-700: #131e2b;
     --dark-900: #0e1720;
-
-    /* light */
-    --light-100: #ffffff;
-    --light-300: #f7fbff;
-    --light-500: #edf3fa;
-    --light-700: #d5dae0;
-    --light-900: #bdc1c7;
 }
 
 /*---------------scrollbar---------------*/
