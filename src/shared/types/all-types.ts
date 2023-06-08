@@ -3,3 +3,5 @@ export type ContactsType = {
     title: string
     link: string
 }
+
+export type StepsType = 'one' | 'two' | 'three'
