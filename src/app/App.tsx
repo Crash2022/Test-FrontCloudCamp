@@ -10,7 +10,8 @@ export const App = () => {
     return (
         <div className="App">
             <Routes>
-                <Route path={RoutePaths.HOME} element={<Main/>}/>
+                <Route path={RoutePaths.HOME} element={<Navigate to={RoutePaths.MAIN} />} />
+                <Route path={RoutePaths.MAIN} element={<Main/>}/>
                 <Route path={RoutePaths.FORM} element={<FormPage/>}/>
                 <Route path={RoutePaths.ERROR404} element={<Error404 />} />
                 <Route path={'*'} element={<Navigate to={RoutePaths.ERROR404} />} />

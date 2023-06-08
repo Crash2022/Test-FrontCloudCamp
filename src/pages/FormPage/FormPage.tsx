@@ -1,7 +1,41 @@
 import React from 'react'
 import s from './FormPage.module.scss'
+import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput"
+import {Button} from "../../shared/ui/Button/Button"
+import {SubmitHandler, useForm} from "react-hook-form"
+import {useNavigate} from "react-router-dom"
+import {RoutePaths} from "../../shared/api/paths";
 
 export const FormPage = () => {
+
+    const navigate = useNavigate()
+
+    // const FormPageSchema = yup.object().shape({
+    //     phone: yup.string()
+    //         .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
+    //         .required(validationTitles.required)
+    //         .min(11, validationTitles.phoneMin)
+    //         .max(11, validationTitles.phoneMax),
+    //     email: yup.string().required(validationTitles.required).email(validationTitles.email),
+    // })
+
+    const {
+        control,
+        handleSubmit,
+        formState: {errors}
+    } = useForm<any>({
+        defaultValues: {
+            nickname: '',
+            name: '',
+            sername: '',
+        },
+        // resolver: yupResolver(FormPageSchema)
+    })
+
+    const onSubmit: SubmitHandler<any> = (data: any) => {
+        // navigate(RoutePaths.FORM)
+    }
+
     return (
         <div className={s.formPage_mainBox}>
             <div className={s.container}>
@@ -9,9 +43,43 @@ export const FormPage = () => {
                     <div className={s.formPage_steps}>
                         1-2-3
                     </div>
-                    <div className={s.formPage_form}>
-                        Form
-                    </div>
+                    <form className={s.formPage_form} onSubmit={handleSubmit(onSubmit)}>
+                        <ControlledInput divClassName={s.form_phone}
+                                         id={'form-page-nickname'}
+                                         name={'nickname'}
+                                         placeholderTitle={'Nickname'}
+                                         control={control}
+                                         error={errors.nickname?.message}
+                        />
+                        <ControlledInput divClassName={s.form_email}
+                                         id={'form-page-name'}
+                                         name={'name'}
+                                         placeholderTitle={'Name'}
+                                         control={control}
+                                         error={errors.name?.message}
+                        />
+                        <ControlledInput divClassName={s.form_email}
+                                         id={'form-page-sername'}
+                                         name={'sername'}
+                                         placeholderTitle={'Sername'}
+                                         control={control}
+                                         error={errors.sername?.message}
+                        />
+                        <Button
+                            id={'button-start'}
+                            theme={'outline'}
+                            onClick={() => {navigate(RoutePaths.MAIN)}}
+                        >
+                            Назад
+                        </Button>
+                        <Button
+                            id={'button-start'}
+                            theme={'primary'}
+                            type={'submit'}
+                        >
+                            Далее
+                        </Button>
+                    </form>
                 </div>
             </div>
         </div>

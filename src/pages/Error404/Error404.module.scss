@@ -1,0 +1,15 @@
+.error404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+
+    .link {
+        a {
+            text-decoration: underline;
+            color: blue;
+        }
+    }
+}

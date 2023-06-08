@@ -1,17 +1,17 @@
 import React from 'react'
 import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
-import {Controller, SubmitHandler, useForm} from 'react-hook-form'
+import {SubmitHandler, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import {validationTitles} from '../../shared/const/validation-titles'
-import {Input} from '../../shared/ui/Input/Input'
+import {validationTitles} from '../../shared/const/validationTitles'
 import {Button} from '../../shared/ui/Button/Button'
 import {useNavigate} from 'react-router-dom'
 import {RoutePaths} from "../../shared/api/paths"
 import {ContactItem} from "../../components/ContactItem/ContactItem"
 import {ContactsType} from "../../shared/types/all-types"
-import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput";
+import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput"
+import {phoneRegExp} from "../../shared/const/phoneRegExp"
 
 
 export const Main = () => {
@@ -26,8 +26,6 @@ export const Main = () => {
         {id: 2, title: 'GitHub', link: 'https://github.com/Crash2022'},
         {id: 3, title: 'Resume', link: 'https://my-portfolio-app-beryl.vercel.app/'},
     ]
-
-    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
     // const MainSchema = yup.object().shape({
     //     phone: yup.string()
@@ -49,14 +47,6 @@ export const Main = () => {
         },
         // resolver: yupResolver(MainSchema)
     })
-
-    // const formControl = useForm<any>({
-    //     defaultValues: {
-    //         phone: '',
-    //         email: ''
-    //     },
-    //     // resolver: yupResolver(MainSchema)
-    // })
 
     const onSubmit: SubmitHandler<any> = (data: any) => {
         navigate(RoutePaths.FORM)
