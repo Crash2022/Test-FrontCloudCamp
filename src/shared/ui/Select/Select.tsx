@@ -25,7 +25,7 @@ export const Select: React.FC<SelectPropsType> = (
 ) => {
     const mappedOptions: any[] = options ? options.map((el, index) => {
         return (
-            <option key={index}>{el}</option>
+            <option key={index} className={s.option_item}>{el}</option>
         )
     }) : []
 
@@ -35,19 +35,14 @@ export const Select: React.FC<SelectPropsType> = (
     }
 
     return (
-        // #0
-        // <select onChange={onChangeCallback} {...restProps}>
-        //     {mappedOptions}
-        // </select>
         <div>
             {
                 placeholderTitle ? <div className={s.placeholder_title}>{placeholderTitle}</div> : ''
             }
             <div className={s.select}>
-                <select name={name} id={id}>
+                <select name={name} id={id} onChange={onChangeCallback} {...restProps}>
                     <option selected disabled>{placeholder}</option>
-                    <option value="pdf" className={s.option_item}>PDF</option>
-                    <option value="txt" className={s.option_item}>txt</option>
+                    {mappedOptions}
                 </select>
             </div>
         </div>
