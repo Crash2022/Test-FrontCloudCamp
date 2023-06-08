@@ -25,7 +25,8 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
         }
     }
 
-    const isSuccess = true
+    const isSuccess = false
+    const isError = true
 
     useEffect(() => {
         if (description.length > 200) {
@@ -38,7 +39,11 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
     return (
         <form className={s.formPage_form} onSubmit={handleSubmit}>
 
-            <MessageModal open={openMessageModal} setOpen={setOpenMessageModal} isSuccess={isSuccess}/>
+            <MessageModal open={openMessageModal}
+                          setOpen={setOpenMessageModal}
+                          isSuccess={isSuccess}
+                          isError={isError}
+            />
 
             <div className={s.about_textarea}>
                 <Textarea
