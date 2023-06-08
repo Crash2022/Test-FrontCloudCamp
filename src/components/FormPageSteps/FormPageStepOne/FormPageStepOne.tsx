@@ -51,30 +51,30 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
                             <ControlledInput divClassName={s.form_nickname}
                                              id={'field-nickname'}
                                              name={'nickname'}
-                                             placeholderTitle={'Nickname'}
+                                             placeholderTitle={'Никнейм'}
                                              control={control}
                                              error={errors.nickname?.message}
                             />
                             <ControlledInput divClassName={s.form_name}
                                              id={'field-name'}
                                              name={'name'}
-                                             placeholderTitle={'Name'}
+                                             placeholderTitle={'Имя'}
                                              control={control}
                                              error={errors.name?.message}
                             />
                             <ControlledInput divClassName={s.form_sername}
                                              id={'field-sername'}
                                              name={'sername'}
-                                             placeholderTitle={'Sername'}
+                                             placeholderTitle={'Фамилия'}
                                              control={control}
                                              error={errors.sername?.message}
                             />
 
-                            <Select placeholder={'Choose gender'} placeholderTitle={'Sex'}/>
+                            <Select placeholder={'Выбрать пол'} placeholderTitle={'Пол'}/>
 
                             <div className={s.buttonsBlock}>
                                 <Button
-                                    id={'button-back'}
+                                    id={'button-back1'}
                                     theme={'outline'}
                                     onClick={() => {
                                         navigate(RoutePaths.MAIN)
@@ -83,7 +83,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
                                     Назад
                                 </Button>
                                 <Button
-                                    id={'button-next'}
+                                    id={'button-next1'}
                                     theme={'primary'}
                                     type={'submit'}
                                 >

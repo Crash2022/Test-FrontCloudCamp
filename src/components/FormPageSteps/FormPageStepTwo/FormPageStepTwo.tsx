@@ -1,12 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {SubmitHandler, useForm} from "react-hook-form"
 import s from './FormPageStepTwo.module.scss'
-import {ControlledInput} from "../../../shared/ui/Controlled/ControlledInput"
 import {Button} from "../../../shared/ui/Button/Button"
 import {FormPageStepsProps} from "../../../shared/types/all-types"
-import {Select} from "../../../shared/ui/Select/Select"
+import {ControlledCheckbox} from '../../../shared/ui/Controlled/ControlledCheckbox'
+import {RadioButton} from '../../../shared/ui/RadioButton/RadioButton'
+
+type RadioOptionsTypes = '1' | '2' | '3'
 
 export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
+
+    const radioButtonOptions = ['1', '2', '3']
+    const [radioOption, setRadioOption] = useState<RadioOptionsTypes>('1')
 
     // const FormPageStepOneSchema = yup.object().shape({
     //     phone: yup.string()
@@ -20,10 +25,12 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
     const {
         control,
         handleSubmit,
-        formState: {errors}
+        // formState: {errors}
     } = useForm<any>({
         defaultValues: {
-            nickname: '',
+            checkboxOne: false,
+            checkboxTwo: false,
+            checkboxThree: false,
         },
         // resolver: yupResolver(FormPageStepOneSchema)
     })
@@ -34,17 +41,39 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
 
     return (
         <form className={s.formPage_form} onSubmit={handleSubmit(onSubmit)}>
-            <ControlledInput divClassName={s.form_nickname}
-                             id={'field-nickname'}
-                             name={'nickname'}
-                             placeholderTitle={'Nickname'}
-                             control={control}
-                             error={errors.nickname?.message}
-            />
+            <div className={s.checkboxGroup}>
+                <div>Checkbox group</div>
+                <ControlledCheckbox divClassName={s.infoBlock_checkbox}
+                                    id={'field-checkbox-group-option-1'}
+                                    name={'checkboxOne'}
+                                    label={'1'}
+                                    control={control}
+                />
+                <ControlledCheckbox divClassName={s.infoBlock_checkbox}
+                                    id={'field-checkbox-group-option-1'}
+                                    name={'checkboxTwo'}
+                                    label={'2'}
+                                    control={control}
+                />
+                <ControlledCheckbox divClassName={s.infoBlock_checkbox}
+                                    id={'field-checkbox-group-option-1'}
+                                    name={'checkboxThree'}
+                                    label={'3'}
+                                    control={control}
+                />
+            </div>
+            <div className={s.radioGroup}>
+                <div>Radio group</div>
+                <RadioButton
+                    options={radioButtonOptions}
+                    value={radioOption}
+                    onChangeOption={setRadioOption}
+                />
+            </div>
 
             <div className={s.buttonsBlock}>
                 <Button
-                    id={'button-back'}
+                    id={'button-back2'}
                     theme={'outline'}
                     onClick={() => {
                         setStep('one')
@@ -53,7 +82,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                     Назад
                 </Button>
                 <Button
-                    id={'button-next'}
+                    id={'button-next2'}
                     theme={'primary'}
                     type={'submit'}
                 >

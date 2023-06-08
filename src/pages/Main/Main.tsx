@@ -85,7 +85,7 @@ export const Main = () => {
                         <ControlledInput divClassName={s.form_email}
                                          id={'main-form-email'}
                                          name={'email'}
-                                         placeholderTitle={'Email'}
+                                         placeholderTitle={'Электронная почта'}
                                          control={control}
                                          error={errors.email?.message}
                         />

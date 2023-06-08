@@ -7,11 +7,13 @@ type DefaultInputPropsType = DetailedHTMLProps<
 >
 
 type CheckboxPropsType = DefaultInputPropsType & {
+    id?: string
     onChangeChecked?: (checked: boolean) => void
     spanClassName?: string
 }
 
 export const Checkbox: React.FC<CheckboxPropsType> = ({
+    id,
     type,
     onChange,
     onChangeChecked,
@@ -32,10 +34,10 @@ export const Checkbox: React.FC<CheckboxPropsType> = ({
         <label className={s.container}>
             {children}
             <input
+                id={id}
                 type={'checkbox'}
                 onChange={onChangeCallback}
                 // className={finalInputClassName}
-
                 {...restProps}
             />
             {/*{children && <span className={s.checkmark}>{children}</span>}*/}

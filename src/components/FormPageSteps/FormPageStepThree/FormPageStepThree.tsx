@@ -60,7 +60,7 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
             <div className={s.about_textarea}>
                 <Textarea
                     placeholder={'Введите текст'}
-                    placeholderTitle={'About'}
+                    placeholderTitle={'Обо мне'}
                     value={description}
                     onChange={(e) => {
                         setDescription(e.currentTarget.value)
@@ -80,7 +80,7 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
 
             <div className={s.buttonsBlock}>
                 <Button
-                    id={'button-back'}
+                    id={'button-back3'}
                     theme={'outline'}
                     onClick={() => {
                         setStep('two')
@@ -89,7 +89,7 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
                     Назад
                 </Button>
                 <Button
-                    id={'button-next'}
+                    id={'button-next3'}
                     theme={'primary'}
                     type={'submit'}
                 >

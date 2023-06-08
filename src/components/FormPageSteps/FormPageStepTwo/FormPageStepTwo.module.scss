@@ -17,23 +17,18 @@
 //            }
 
             .formPage_form {
-                > div:not(:last-child) {
+                .checkboxGroup {
+                    > div:not(:last-child) {
+                        margin-bottom: 5px;
+                    }
+                    margin-bottom: var(--default-padding);
+                }
+                .radioGroup {
+                    > div:not(:last-child) {
+                        margin-bottom: 5px;
+                    }
                     margin-bottom: calc(var(--default-padding) * 2);
                 }
-
-                .form_nickname {
-
-                }
-                .form_name {
-
-                }
-                .form_sername {
-
-                }
-                .form_sex {
-                    margin-bottom: 88px !important;
-                }
-
                 .buttonsBlock {
                     display: flex;
                     justify-content: space-between;
