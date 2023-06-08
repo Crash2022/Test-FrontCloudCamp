@@ -1,4 +1,4 @@
-import {combineReducers, configureStore, ThunkAction} from '@reduxjs/toolkit'
+import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import {formPageAPI} from '../services/FormPageService'
 import {advantagesReducer} from './advantagesSlice'
 

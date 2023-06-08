@@ -5,35 +5,26 @@ import {Button} from '../../../shared/ui/Button/Button'
 import {FormPageStepsProps} from '../../../shared/types/all-types'
 import {ControlledCheckbox} from '../../../shared/ui/Controlled/ControlledCheckbox'
 import {RadioButton} from '../../../shared/ui/RadioButton/RadioButton'
+import {useAppDispatch} from '../../../shared/hooks/useAppDispatch'
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
 export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
 
+    const dispatch = useAppDispatch()
+
     const radioButtonOptions = ['1', '2', '3']
     const [radioOption, setRadioOption] = useState<RadioOptionsTypes>('1')
 
-
-    // const FormPageStepOneSchema = yup.object().shape({
-    //     phone: yup.string()
-    //         .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
-    //         .required(validationTitles.required)
-    //         .min(11, validationTitles.phoneMin)
-    //         .max(11, validationTitles.phoneMax),
-    //     email: yup.string().required(validationTitles.required).email(validationTitles.email),
-    // })
-
     const {
         control,
-        handleSubmit,
-        // formState: {errors}
+        handleSubmit
     } = useForm<any>({
         defaultValues: {
             checkboxOne: false,
             checkboxTwo: false,
             checkboxThree: false,
-        },
-        // resolver: yupResolver(FormPageStepOneSchema)
+        }
     })
 
     const onSubmit: SubmitHandler<any> = (data: any) => {

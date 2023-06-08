@@ -5,8 +5,8 @@ import {SubmitHandler, useForm} from 'react-hook-form'
 import {useNavigate} from 'react-router-dom'
 import {Button} from '../../../shared/ui/Button/Button'
 import {RoutePaths} from '../../../shared/api/paths'
-import {FormPageStepsProps} from '../../../shared/types/all-types'
-import {Select} from '../../../shared/ui/Select/Select';
+import {FormPageStepOneType, FormPageStepsProps} from '../../../shared/types/all-types'
+import {Select} from '../../../shared/ui/Select/Select'
 
 type SexOptionsTypes = 'Мужчина' | 'Женщина'
 
@@ -30,7 +30,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
         control,
         handleSubmit,
         formState: {errors}
-    } = useForm<any>({
+    } = useForm<FormPageStepOneType>({
         defaultValues: {
             nickname: '',
             name: '',
@@ -40,7 +40,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
         // resolver: yupResolver(FormPageStepOneSchema)
     })
 
-    const onSubmit: SubmitHandler<any> = (data: any) => {
+    const onSubmit: SubmitHandler<FormPageStepOneType> = (data: FormPageStepOneType) => {
         setStep('two')
     }
 

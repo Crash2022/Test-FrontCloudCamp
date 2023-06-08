@@ -10,7 +10,7 @@ import {Button} from '../../shared/ui/Button/Button'
 import {useNavigate} from 'react-router-dom'
 import {RoutePaths} from "../../shared/api/paths"
 import {ContactItem} from "../../components/ContactItem/ContactItem"
-import {ContactsType} from "../../shared/types/all-types"
+import {ContactsType, MainPageFormType} from '../../shared/types/all-types'
 import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput"
 
 
@@ -40,7 +40,7 @@ export const Main = () => {
         control,
         handleSubmit,
         formState: {errors}
-    } = useForm<any>({
+    } = useForm<MainPageFormType>({
         defaultValues: {
             phone: '',
             email: ''
@@ -48,7 +48,7 @@ export const Main = () => {
         // resolver: yupResolver(MainSchema)
     })
 
-    const onSubmit: SubmitHandler<any> = (data: any) => {
+    const onSubmit: SubmitHandler<MainPageFormType> = (data: MainPageFormType) => {
         navigate(RoutePaths.FORM)
     }
 

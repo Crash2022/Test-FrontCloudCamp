@@ -9,3 +9,14 @@ export type FormPageStepsProps = {
 }
 
 export type StepsType = 'one' | 'two' | 'three'
+
+export type MainPageFormType = {
+    phone: string
+    email: string
+}
+
+export type FormPageStepOneType = {
+    nickname: string
+    name: string
+    sername: string
+}
