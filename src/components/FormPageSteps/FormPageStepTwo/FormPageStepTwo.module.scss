@@ -1,22 +1,28 @@
-.formPage_form {
-    .checkboxGroup {
-        > div:not(:last-child) {
-            margin-bottom: 5px;
+.formPageStepTwo {
+    .advantages {
+
+        .add_button {
+            margin-bottom: var(--default-padding);
         }
-
-        margin-bottom: var(--default-padding);
     }
+    .formPage_form {
+        .checkboxGroup {
+            > div:not(:last-child) {
+                margin-bottom: 5px;
+            }
 
-    .radioGroup {
-        > div:not(:last-child) {
-            margin-bottom: 5px;
+            margin-bottom: var(--default-padding);
         }
+        .radioGroup {
+            > div:not(:last-child) {
+                margin-bottom: 5px;
+            }
 
-        margin-bottom: calc(var(--default-padding) * 2);
-    }
-
-    .buttonsBlock {
-        display: flex;
-        justify-content: space-between;
+            margin-bottom: calc(var(--default-padding) * 2);
+        }
+        .buttonsBlock {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 }

@@ -45,55 +45,53 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
     }
 
     return (
-        <>
-            <form className={s.formPage_form} onSubmit={handleSubmit(onSubmit)}>
-                <ControlledInput divClassName={s.form_nickname}
-                                 id={'field-nickname'}
-                                 name={'nickname'}
-                                 placeholderTitle={'Никнейм'}
-                                 control={control}
-                                 error={errors.nickname?.message}
-                />
-                <ControlledInput divClassName={s.form_name}
-                                 id={'field-name'}
-                                 name={'name'}
-                                 placeholderTitle={'Имя'}
-                                 control={control}
-                                 error={errors.name?.message}
-                />
-                <ControlledInput divClassName={s.form_sername}
-                                 id={'field-sername'}
-                                 name={'sername'}
-                                 placeholderTitle={'Фамилия'}
-                                 control={control}
-                                 error={errors.sername?.message}
-                />
-                <Select placeholder={'Выбрать пол'}
-                        placeholderTitle={'Пол'}
-                        options={sexOptions}
-                        value={sexOptionSelect}
-                        onChangeOption={setSexOptionSelect}
-                />
-                <div className={s.buttonsBlock}>
-                    <Button
-                        id={'button-back1'}
-                        theme={'outline'}
-                        onClick={() => {
-                            navigate(RoutePaths.MAIN)
-                        }}
-                    >
-                        Назад
-                    </Button>
-                    <Button
-                        id={'button-next1'}
-                        theme={'primary'}
-                        type={'submit'}
-                    >
-                        Далее
-                    </Button>
-                </div>
-            </form>
+        <form className={s.formPage_form} onSubmit={handleSubmit(onSubmit)}>
+            <ControlledInput divClassName={s.form_nickname}
+                             id={'field-nickname'}
+                             name={'nickname'}
+                             placeholderTitle={'Никнейм'}
+                             control={control}
+                             error={errors.nickname?.message}
+            />
+            <ControlledInput divClassName={s.form_name}
+                             id={'field-name'}
+                             name={'name'}
+                             placeholderTitle={'Имя'}
+                             control={control}
+                             error={errors.name?.message}
+            />
+            <ControlledInput divClassName={s.form_sername}
+                             id={'field-sername'}
+                             name={'sername'}
+                             placeholderTitle={'Фамилия'}
+                             control={control}
+                             error={errors.sername?.message}
+            />
+            <Select placeholder={'Выбрать пол'}
+                    placeholderTitle={'Пол'}
+                    options={sexOptions}
+                    value={sexOptionSelect}
+                    onChangeOption={setSexOptionSelect}
+            />
+            <div className={s.buttonsBlock}>
+                <Button
+                    id={'button-back1'}
+                    theme={'outline'}
+                    onClick={() => {
+                        navigate(RoutePaths.MAIN)
+                    }}
+                >
+                    Назад
+                </Button>
+                <Button
+                    id={'button-next1'}
+                    theme={'primary'}
+                    type={'submit'}
+                >
+                    Далее
+                </Button>
+            </div>
+        </form>
 
-        </>
     )
 }

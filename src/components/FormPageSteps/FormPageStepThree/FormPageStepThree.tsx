@@ -4,7 +4,7 @@ import {Button} from '../../../shared/ui/Button/Button'
 import {FormPageStepsProps} from '../../../shared/types/all-types'
 import {Textarea} from '../../../shared/ui/Textarea/Textarea'
 import {validationTitles} from '../../../shared/const/validationTitles'
-import {MessageModal} from '../../MessageModal/MessageModal';
+import {MessageModal} from '../../MessageModal/MessageModal'
 
 export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
 
@@ -18,7 +18,6 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
         const trimValue = description.trim()
 
         if (trimValue && trimValue.length <= 200) {
-            // alert('submit')
             setOpenMessageModal(true)
         } else {
             setDescriptionError(validationTitles.aboutMin)

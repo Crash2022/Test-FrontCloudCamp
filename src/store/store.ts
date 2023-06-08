@@ -1,7 +1,9 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {formPageAPI} from '../services/FormPageService';
+import {combineReducers, configureStore, ThunkAction} from '@reduxjs/toolkit'
+import {formPageAPI} from '../services/FormPageService'
+import {advantagesReducer} from './advantagesSlice'
 
 const rootReducer = combineReducers({
+    advantages: advantagesReducer,
     [formPageAPI.reducerPath]: formPageAPI.reducer
 })
 
@@ -14,6 +16,9 @@ export const setupStore = () => {
     })
 }
 
-export type RootState = ReturnType<typeof rootReducer>
-export type AppStore = ReturnType<typeof setupStore>
-export type AppDispatch = AppStore['dispatch']
+export type AppRootStateType = ReturnType<typeof rootReducer>
+export type AppStoreType = ReturnType<typeof setupStore>
+export type AppDispatchType = AppStoreType['dispatch']
+
+// export type AppDispatchType = typeof store.dispatch
+// export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootStateType, unknown, any>

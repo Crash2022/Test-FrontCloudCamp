@@ -16,11 +16,6 @@ export const FormPage = () => {
                     <div className={s.formPage_steps}>
                         1-2-3
                     </div>
-
-                    {/*<form className={s.formPage_form}>*/}
-
-                        {/*{children}*/}
-
                         {
                             step === 'one' ? <FormPageStepOne setStep={setStep}/> : ''
                         }
@@ -30,75 +25,6 @@ export const FormPage = () => {
                         {
                             step === 'three' ? <FormPageStepThree setStep={setStep}/> : ''
                         }
-
-                        {/*<div className={s.buttonsBlock}>*/}
-                        {/*    <Button*/}
-                        {/*        id={'button-back'}*/}
-                        {/*        theme={'outline'}*/}
-                        {/*        onClick={() => {*/}
-                        {/*            navigate(RoutePaths.MAIN)*/}
-                        {/*        }}*/}
-                        {/*    >*/}
-                        {/*        Назад*/}
-                        {/*    </Button>*/}
-                        {/*    <Button*/}
-                        {/*        id={'button-next'}*/}
-                        {/*        theme={'primary'}*/}
-                        {/*        type={'submit'}*/}
-                        {/*    >*/}
-                        {/*        Далее*/}
-                        {/*    </Button>*/}
-                        {/*</div>*/}
-                    {/*</form>*/}
-
-                    {/*<form className={s.formPage_form} onSubmit={handleSubmit(onSubmit)}>*/}
-                    {/*    <ControlledInput divClassName={s.form_nickname}*/}
-                    {/*                     id={'field-nickname'}*/}
-                    {/*                     name={'nickname'}*/}
-                    {/*                     placeholderTitle={'Nickname'}*/}
-                    {/*                     control={control}*/}
-                    {/*                     error={errors.nickname?.message}*/}
-                    {/*    />*/}
-                    {/*    <ControlledInput divClassName={s.form_name}*/}
-                    {/*                     id={'field-name'}*/}
-                    {/*                     name={'name'}*/}
-                    {/*                     placeholderTitle={'Name'}*/}
-                    {/*                     control={control}*/}
-                    {/*                     error={errors.name?.message}*/}
-                    {/*    />*/}
-                    {/*    <ControlledInput divClassName={s.form_sername}*/}
-                    {/*                     id={'field-sername'}*/}
-                    {/*                     name={'sername'}*/}
-                    {/*                     placeholderTitle={'Sername'}*/}
-                    {/*                     control={control}*/}
-                    {/*                     error={errors.sername?.message}*/}
-                    {/*    />*/}
-
-                    {/*    <ControlledInput divClassName={s.form_sex}*/}
-                    {/*                     id={'field-sex'}*/}
-                    {/*                     name={'sex'}*/}
-                    {/*                     placeholderTitle={'Sex'}*/}
-                    {/*                     control={control}*/}
-                    {/*                     error={errors.sex?.message}*/}
-                    {/*    />*/}
-
-                    {/*    <div className={s.buttonsBlock}>*/}
-                    {/*        <Button*/}
-                    {/*            id={'button-back'}*/}
-                    {/*            theme={'outline'}*/}
-                    {/*            onClick={() => {navigate(RoutePaths.MAIN)}}*/}
-                    {/*        >*/}
-                    {/*            Назад*/}
-                    {/*        </Button>*/}
-                    {/*        <Button*/}
-                    {/*            id={'button-next'}*/}
-                    {/*            theme={'primary'}*/}
-                    {/*            type={'submit'}*/}
-                    {/*        >*/}
-                    {/*            Далее*/}
-                    {/*        </Button>*/}
-                    {/*    </div>*/}
-                    {/*</form>*/}
                 </div>
             </div>
         </div>
