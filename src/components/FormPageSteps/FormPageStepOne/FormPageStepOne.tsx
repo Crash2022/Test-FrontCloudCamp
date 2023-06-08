@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom"
 import {Button} from "../../../shared/ui/Button/Button"
 import {RoutePaths} from "../../../shared/api/paths"
 import {FormPageStepsProps} from "../../../shared/types/all-types"
+import {Select} from "../../../shared/ui/Select/Select";
 
 export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
@@ -69,13 +70,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
                                              error={errors.sername?.message}
                             />
 
-                            <ControlledInput divClassName={s.form_sex}
-                                             id={'field-sex'}
-                                             name={'sex'}
-                                             placeholderTitle={'Sex'}
-                                             control={control}
-                                             error={errors.sex?.message}
-                            />
+                            <Select/>
 
                             <div className={s.buttonsBlock}>
                                 <Button

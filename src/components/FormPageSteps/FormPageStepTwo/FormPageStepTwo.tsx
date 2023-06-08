@@ -4,6 +4,7 @@ import s from './FormPageStepTwo.module.scss'
 import {ControlledInput} from "../../../shared/ui/Controlled/ControlledInput"
 import {Button} from "../../../shared/ui/Button/Button"
 import {FormPageStepsProps} from "../../../shared/types/all-types"
+import {Select} from "../../../shared/ui/Select/Select"
 
 export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
 
@@ -23,8 +24,6 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
     } = useForm<any>({
         defaultValues: {
             nickname: '',
-            name: '',
-            sername: '',
         },
         // resolver: yupResolver(FormPageStepOneSchema)
     })
@@ -41,20 +40,6 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                              placeholderTitle={'Nickname'}
                              control={control}
                              error={errors.nickname?.message}
-            />
-            <ControlledInput divClassName={s.form_name}
-                             id={'field-name'}
-                             name={'name'}
-                             placeholderTitle={'Name'}
-                             control={control}
-                             error={errors.name?.message}
-            />
-            <ControlledInput divClassName={s.form_sername}
-                             id={'field-sername'}
-                             name={'sername'}
-                             placeholderTitle={'Sername'}
-                             control={control}
-                             error={errors.sername?.message}
             />
 
             <div className={s.buttonsBlock}>
