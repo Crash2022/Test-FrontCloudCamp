@@ -19,17 +19,27 @@
             }
 
             .formPage_form {
-                //margin-top: var(--default-padding);
-                //display: flex;
-                //flex-direction: column;
-                //align-items: flex-start;
-                //
-                //.form_phone {
-                //    margin-bottom: var(--default-padding);
-                //}
-                //.form_email {
-                //    margin-bottom: calc(2 * var(--default-padding));
-                //}
+                > div:not(:last-child) {
+                    margin-bottom: calc(var(--default-padding) * 2);
+                }
+
+                .form_nickname {
+
+                }
+                .form_name {
+
+                }
+                .form_sername {
+
+                }
+                .form_sex {
+                    margin-bottom: 88px !important;
+                }
+
+                .buttonsBlock {
+                    display: flex;
+                    justify-content: space-between;
+                }
             }
         }
     }
