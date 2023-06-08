@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 type AdvantagesStateType = {
-    advantages: any[]
+    advantages: string
 }
 
 const initialState: AdvantagesStateType = {
-    advantages: []
+    advantages: ''
 }
 
 export const advantagesSlice = createSlice<any, any>({
     name: 'advantages',
     initialState,
     reducers: {
-        addAdvantage: (state: any, action: PayloadAction<{ advantage: string }>) => {
+        addAdvantage: (state: AdvantagesStateType, action: PayloadAction<{ advantage: string }>) => {
             state.advantages = action.payload.advantage
         },
     }

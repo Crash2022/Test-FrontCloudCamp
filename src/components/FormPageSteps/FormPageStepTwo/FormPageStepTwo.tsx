@@ -6,12 +6,16 @@ import {FormPageStepsProps} from '../../../shared/types/all-types'
 import {ControlledCheckbox} from '../../../shared/ui/Controlled/ControlledCheckbox'
 import {RadioButton} from '../../../shared/ui/RadioButton/RadioButton'
 import {useAppDispatch} from '../../../shared/hooks/useAppDispatch'
+import {useAppSelector} from '../../../shared/hooks/useAppSelector'
+import {selectorAdvantages} from '../../../store/selectors'
+import {addAdvantage} from '../../../store/advantagesSlice'
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
 export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
 
     const dispatch = useAppDispatch()
+    const advantages = useAppSelector(selectorAdvantages)
 
     const radioButtonOptions = ['1', '2', '3']
     const [radioOption, setRadioOption] = useState<RadioOptionsTypes>('1')
@@ -34,14 +38,25 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
     return (
         <div className={s.formPageStepTwo}>
             <div className={s.advantages}>
-                editable span
+
+                {/*{*/}
+                {/*    advantages && advantages.map((el: any) => {*/}
+                {/*        return (*/}
+                {/*            <div>{el}</div>*/}
+                {/*        )*/}
+                {/*    })*/}
+                {/*}*/}
+
+                {advantages && advantages}
 
                 <Button
                     divClassName={s.add_button}
                     id={'button-add'}
                     theme={'outline'}
                     onClick={() => {
-                        alert('add')
+                        // alert('add')
+                        // @ts-ignore
+                        dispatch(addAdvantage({advantage: 'new'}))
                     }}
                 >
                     +
