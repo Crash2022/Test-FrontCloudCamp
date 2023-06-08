@@ -39,22 +39,19 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
         <div className={s.formPageStepTwo}>
             <div className={s.advantages}>
 
-                {/*{*/}
-                {/*    advantages && advantages.map((el: any) => {*/}
-                {/*        return (*/}
-                {/*            <div>{el}</div>*/}
-                {/*        )*/}
-                {/*    })*/}
-                {/*}*/}
-
-                {advantages && advantages}
+                {
+                    advantages && advantages.map((el: string, index: number) => {
+                        return (
+                            <div key={index} className={s.added_input}>{el}</div>
+                        )
+                    })
+                }
 
                 <Button
                     divClassName={s.add_button}
                     id={'button-add'}
                     theme={'outline'}
                     onClick={() => {
-                        // alert('add')
                         // @ts-ignore
                         dispatch(addAdvantage({advantage: 'new'}))
                     }}
