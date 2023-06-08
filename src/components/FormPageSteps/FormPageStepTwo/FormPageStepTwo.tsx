@@ -70,7 +70,6 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                     onChangeOption={setRadioOption}
                 />
             </div>
-
             <div className={s.buttonsBlock}>
                 <Button
                     id={'button-back2'}

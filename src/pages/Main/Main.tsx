@@ -2,16 +2,16 @@ import React from 'react'
 import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
 import {SubmitHandler, useForm} from 'react-hook-form'
-import {yupResolver} from '@hookform/resolvers/yup'
-import * as yup from 'yup'
-import {validationTitles} from '../../shared/const/validationTitles'
+// import {yupResolver} from '@hookform/resolvers/yup'
+// import * as yup from 'yup'
+// import {validationTitles} from '../../shared/const/validationTitles'
+// import {phoneRegExp} from "../../shared/const/phoneRegExp"
 import {Button} from '../../shared/ui/Button/Button'
 import {useNavigate} from 'react-router-dom'
 import {RoutePaths} from "../../shared/api/paths"
 import {ContactItem} from "../../components/ContactItem/ContactItem"
 import {ContactsType} from "../../shared/types/all-types"
 import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput"
-import {phoneRegExp} from "../../shared/const/phoneRegExp"
 
 
 export const Main = () => {
@@ -73,7 +73,6 @@ export const Main = () => {
                             </div>
                         </div>
                     </div>
-
                     <form className={s.main_form} onSubmit={handleSubmit(onSubmit)}>
                         <ControlledInput divClassName={s.form_phone}
                                          id={'main-form-phone'}
