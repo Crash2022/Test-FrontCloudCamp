@@ -4,4 +4,8 @@ export type ContactsType = {
     link: string
 }
 
+export type FormPageStepsProps = {
+    setStep: (value: StepsType) => void
+}
+
 export type StepsType = 'one' | 'two' | 'three'

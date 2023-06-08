@@ -6,7 +6,7 @@
 
         .formPage_card {
             width: 900px;
-            height: 821px;
+            height: 100%;
             background-color: var(--form-bg-color);
             border-radius: 24px;
             margin-top: var(--default-padding);
@@ -16,7 +16,7 @@
                 margin-bottom: 100px;
             }
 
-            .formPage_form {
+            //.formPage_form {
             //    > div:not(:last-child) {
             //        margin-bottom: calc(var(--default-padding) * 2);
             //    }
@@ -33,12 +33,12 @@
             //    .form_sex {
             //        margin-bottom: 88px !important;
             //    }
-
-                .buttonsBlock {
-                    display: flex;
-                    justify-content: space-between;
-                }
-            }
+            //
+            //    .buttonsBlock {
+            //        display: flex;
+            //        justify-content: space-between;
+            //    }
+            //}
         }
     }
 }

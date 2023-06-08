@@ -1,21 +1,13 @@
-import React, {ReactElement, useState} from 'react'
+import React, {useState} from 'react'
 import s from './FormPage.module.scss'
-import {useNavigate} from "react-router-dom"
 import {FormPageStepOne} from "../../components/FormPageSteps/FormPageStepOne/FormPageStepOne"
 import {FormPageStepTwo} from "../../components/FormPageSteps/FormPageStepTwo/FormPageStepTwo"
 import {FormPageStepThree} from "../../components/FormPageSteps/FormPageStepThree/FormPageStepThree"
 import {StepsType} from "../../shared/types/all-types"
 
-// type FormWrapperProps = {
-//     children?: ReactElement
-//     formClassName?: any
-// }
-
 export const FormPage = () => {
 
     const [step, setStep] = useState<StepsType>('one')
-
-    const navigate = useNavigate()
 
     return (
         <div className={s.formPage_mainBox}>
@@ -33,10 +25,10 @@ export const FormPage = () => {
                             step === 'one' ? <FormPageStepOne setStep={setStep}/> : ''
                         }
                         {
-                            step === 'two' ? <FormPageStepTwo/> : ''
+                            step === 'two' ? <FormPageStepTwo setStep={setStep}/> : ''
                         }
                         {
-                            step === 'three' ? <FormPageStepThree/> : ''
+                            step === 'three' ? <FormPageStepThree setStep={setStep}/> : ''
                         }
 
                         {/*<div className={s.buttonsBlock}>*/}

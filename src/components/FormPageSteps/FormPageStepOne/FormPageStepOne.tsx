@@ -5,13 +5,9 @@ import {SubmitHandler, useForm} from "react-hook-form"
 import {useNavigate} from "react-router-dom"
 import {Button} from "../../../shared/ui/Button/Button"
 import {RoutePaths} from "../../../shared/api/paths"
-import {StepsType} from "../../../shared/types/all-types"
+import {FormPageStepsProps} from "../../../shared/types/all-types"
 
-type FormPageStepOneProps = {
-    setStep: (value: StepsType) => void
-}
-
-export const FormPageStepOne = ({setStep}: FormPageStepOneProps) => {
+export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
     const navigate = useNavigate()
 
