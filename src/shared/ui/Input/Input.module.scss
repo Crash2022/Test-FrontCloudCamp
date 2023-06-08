@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .inputWrapper {
     width: 100%;
 }
@@ -21,7 +23,6 @@
 }
 .customInput::placeholder {
     color: var(--default-gray-color-dark);
-    //opacity: 0.7;
 }
 .customInput:hover {
     opacity: 1;
@@ -40,16 +41,13 @@ textarea:-webkit-autofill:focus {
 .placeholder_title {
     margin-bottom: 8px;
     text-align: left;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
+    @include small-text-14;
 }
 
 // стили для ошибок
 .errorWrapper {
     text-align: left;
     padding-top: 5px;
-    //padding-left: 10px;
     font-size: 14px;
     color: red;
 }

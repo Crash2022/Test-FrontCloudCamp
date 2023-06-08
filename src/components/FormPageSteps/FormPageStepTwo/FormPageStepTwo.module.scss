@@ -1,39 +1,22 @@
-//.formPage_mainBox {
-//    .container {
-//        width: 1400px;
-//        display: flex;
-//        justify-content: center;
-//
-//        .formPage_card {
-//            width: 900px;
-//            height: 821px;
-//            background-color: var(--form-bg-color);
-//            border-radius: 24px;
-//            margin-top: var(--default-padding);
-//            padding: 66px 110px 80px 110px;
-//
-//            .formPage_steps {
-//                margin-bottom: 100px;
-//            }
+.formPage_form {
+    .checkboxGroup {
+        > div:not(:last-child) {
+            margin-bottom: 5px;
+        }
 
-            .formPage_form {
-                .checkboxGroup {
-                    > div:not(:last-child) {
-                        margin-bottom: 5px;
-                    }
-                    margin-bottom: var(--default-padding);
-                }
-                .radioGroup {
-                    > div:not(:last-child) {
-                        margin-bottom: 5px;
-                    }
-                    margin-bottom: calc(var(--default-padding) * 2);
-                }
-                .buttonsBlock {
-                    display: flex;
-                    justify-content: space-between;
-                }
-            }
-        //}
-    //}
-//}
+        margin-bottom: var(--default-padding);
+    }
+
+    .radioGroup {
+        > div:not(:last-child) {
+            margin-bottom: 5px;
+        }
+
+        margin-bottom: calc(var(--default-padding) * 2);
+    }
+
+    .buttonsBlock {
+        display: flex;
+        justify-content: space-between;
+    }
+}
