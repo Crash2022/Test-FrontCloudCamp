@@ -70,7 +70,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
                                              error={errors.sername?.message}
                             />
 
-                            <Select/>
+                            <Select placeholder={'Choose gender'} placeholderTitle={'Sex'}/>
 
                             <div className={s.buttonsBlock}>
                                 <Button

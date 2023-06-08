@@ -7,11 +7,13 @@ select {
     outline: 0;
     box-shadow: none;
     border: 0 !important;
-    background-color: #5c6664;
+    //background-color: #5c6664; // фон списка
+    background-color: transparent;
     background-image: none;
     flex: 1;
-    padding: 0 .5em;
-    color: #fff;
+    padding: 0.5em;
+    color: var(--default-gray-color-dark);
+    //color: #fff; // цвет шрифта плейсхолдера
     cursor: pointer;
     font-size: 1em;
 }
@@ -27,9 +29,12 @@ select::-ms-expand {
     //width: 20em;
     height: 3em;
     line-height: 3;
-    background: #5c6664;
+    //background: #5c6664; // цвет фона плейсхолдера
+    background: transparent;
     overflow: hidden;
-    border-radius: .25em;
+    //border-radius: .25em; // радиус селекта
+    border-radius: 4px;
+    border: 2px solid var(--default-gray-color-medium);
 }
 
 .select::after {
@@ -38,7 +43,8 @@ select::-ms-expand {
     top: 0;
     right: 0;
     padding: 0 1em;
-    background: #2b2e2e;
+    //background: #2b2e2e; // цвет фона стрелочки
+    background: transparent;
     cursor: pointer;
     pointer-events: none;
     transition: .25s all ease;
@@ -46,4 +52,16 @@ select::-ms-expand {
 
 .select:hover::after {
     color: #23b499;
+}
+
+.placeholder_title {
+    margin-bottom: 8px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.option_item {
+    color: black;
 }

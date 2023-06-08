@@ -6,6 +6,8 @@ type DefaultSelectPropsType = DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectE
 type SelectPropsType = DefaultSelectPropsType & {
     id?: string
     name?: string
+    placeholder: string
+    placeholderTitle?: string
     options?: any[]
     onChangeOption?: (option: any) => void
 }
@@ -14,6 +16,8 @@ export const Select: React.FC<SelectPropsType> = (
     {
         id,
         name,
+        placeholder,
+        placeholderTitle,
         options,
         onChange, onChangeOption,
         ...restProps
@@ -35,16 +39,17 @@ export const Select: React.FC<SelectPropsType> = (
         // <select onChange={onChangeCallback} {...restProps}>
         //     {mappedOptions}
         // </select>
-
-        <div className={s.select}>
-            <select name={name} id={id}>
-                <option selected disabled>Choose a book format</option>
-                <option value="pdf">PDF</option>
-                <option value="txt">txt</option>
-                <option value="epub">ePub</option>
-                <option value="fb2">fb2</option>
-                <option value="mobi">mobi</option>
-            </select>
+        <div>
+            {
+                placeholderTitle ? <div className={s.placeholder_title}>{placeholderTitle}</div> : ''
+            }
+            <div className={s.select}>
+                <select name={name} id={id}>
+                    <option selected disabled>{placeholder}</option>
+                    <option value="pdf" className={s.option_item}>PDF</option>
+                    <option value="txt" className={s.option_item}>txt</option>
+                </select>
+            </div>
         </div>
     )
 }
