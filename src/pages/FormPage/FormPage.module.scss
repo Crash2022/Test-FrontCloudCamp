@@ -1,5 +1,3 @@
-@import '../../shared/styles/mixins';
-
 .formPage_mainBox {
     .container {
         width: 1400px;
@@ -19,22 +17,22 @@
             }
 
             .formPage_form {
-                > div:not(:last-child) {
-                    margin-bottom: calc(var(--default-padding) * 2);
-                }
-
-                .form_nickname {
-
-                }
-                .form_name {
-
-                }
-                .form_sername {
-
-                }
-                .form_sex {
-                    margin-bottom: 88px !important;
-                }
+            //    > div:not(:last-child) {
+            //        margin-bottom: calc(var(--default-padding) * 2);
+            //    }
+            //
+            //    .form_nickname {
+            //
+            //    }
+            //    .form_name {
+            //
+            //    }
+            //    .form_sername {
+            //
+            //    }
+            //    .form_sex {
+            //        margin-bottom: 88px !important;
+            //    }
 
                 .buttonsBlock {
                     display: flex;
