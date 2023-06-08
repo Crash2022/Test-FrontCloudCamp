@@ -1,20 +1,21 @@
 @import '../../shared/styles/mixins';
 
-.main_mainBox {
+.mainPage_mainBox {
     .container {
         width: 1400px;
         display: flex;
         justify-content: center;
         //border: 1px solid black;
 
-        .main_mainForm {
+        .main_loginCard {
             width: 900px;
             height: 704px;
             background-color: var(--form-bg-color);
+            border-radius: 12px;
             margin-top: var(--default-padding);
             padding: 0 var(--default-padding) var(--default-padding);
 
-            .mainForm_header {
+            .userInfo_header {
                 height: 129px;
                 border-bottom: 2px solid var(--default-gray-color-light);
                 display: flex;
@@ -52,7 +53,7 @@
                 }
             }
 
-            .mainForm_form {
+            .main_form {
                 margin-top: var(--default-padding);
                 display: flex;
                 flex-direction: column;

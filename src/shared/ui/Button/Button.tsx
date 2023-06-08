@@ -1,6 +1,5 @@
 import { type ButtonHTMLAttributes, memo, type PropsWithChildren } from 'react'
-
-import cls from './Button.module.scss'
+import s from './Button.module.scss'
 import clsx from 'clsx'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,7 +13,7 @@ export const Button = memo((props: PropsWithChildren<ButtonProps>) => {
 
     return (
         <div className={divClassName}>
-            <button className={clsx(cls.button, [className, cls[theme]])} {...restProps}>
+            <button className={clsx(s.button, [className, s[theme]])} {...restProps}>
                 {children}
             </button>
         </div>

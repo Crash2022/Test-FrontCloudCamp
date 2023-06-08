@@ -7,10 +7,11 @@ import * as yup from 'yup'
 import {validationTitles} from '../../shared/const/validation-titles'
 import {Input} from '../../shared/ui/Input/Input'
 import {Button} from '../../shared/ui/Button/Button'
-import { useNavigate } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import {RoutePaths} from "../../shared/api/paths"
 import {ContactItem} from "../../components/ContactItem/ContactItem"
 import {ContactsType} from "../../shared/types/all-types"
+import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput";
 
 
 export const Main = () => {
@@ -28,14 +29,14 @@ export const Main = () => {
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
-    const MainSchema = yup.object().shape({
-        phone: yup.string()
-            .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
-            .required(validationTitles.required)
-            .min(11, validationTitles.phoneMin)
-            .max(11, validationTitles.phoneMax),
-        email: yup.string().required(validationTitles.required).email(validationTitles.email),
-    })
+    // const MainSchema = yup.object().shape({
+    //     phone: yup.string()
+    //         .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
+    //         .required(validationTitles.required)
+    //         .min(11, validationTitles.phoneMin)
+    //         .max(11, validationTitles.phoneMax),
+    //     email: yup.string().required(validationTitles.required).email(validationTitles.email),
+    // })
 
     const {
         control,
@@ -46,19 +47,26 @@ export const Main = () => {
             phone: '',
             email: ''
         },
-        resolver: yupResolver(MainSchema)
+        // resolver: yupResolver(MainSchema)
     })
 
+    // const formControl = useForm<any>({
+    //     defaultValues: {
+    //         phone: '',
+    //         email: ''
+    //     },
+    //     // resolver: yupResolver(MainSchema)
+    // })
+
     const onSubmit: SubmitHandler<any> = (data: any) => {
-        // code here
-        // navigate(RoutePaths.FORM)
+        navigate(RoutePaths.FORM)
     }
 
     return (
-        <div className={s.main_mainBox}>
+        <div className={s.mainPage_mainBox}>
             <div className={s.container}>
-                <div className={s.main_mainForm}>
-                    <div className={s.mainForm_header}>
+                <div className={s.main_loginCard}>
+                    <div className={s.userInfo_header}>
                         <Avatar lastName={lastName} firstName={firstName}/>
                         <div className={s.header_info}>
                             <div className={s.header_infoName}>
@@ -68,47 +76,29 @@ export const Main = () => {
                                 {
                                     contacts.map(c => {
                                         return (
-                                            <ContactItem key={c.id} contact={c} />
+                                            <ContactItem key={c.id} contact={c}/>
                                         )
                                     })
                                 }
                             </div>
                         </div>
                     </div>
-                    <form className={s.mainForm_form} onSubmit={handleSubmit(onSubmit)}>
-                        {/*<ControlledInput name={'phone'}*/}
-                        {/*                 placeholder={'Номер телефона'}*/}
-                        {/*                 control={control}*/}
-                        {/*/>*/}
 
-                        <div className={s.form_phone}>
-                            <Controller
-                                name={'phone'}
-                                control={control}
-                                render={({ field }) => (
-                                    <Input
-                                        {...field}
-                                        id={'main-form-phone'}
-                                        placeholderTitle={'Номер телефона'}
-                                        error={errors.phone?.message}
-                                    />
-                                )}
-                            />
-                        </div>
-                        <div className={s.form_email}>
-                            <Controller
-                                name={'email'}
-                                control={control}
-                                render={({ field }) => (
-                                    <Input
-                                        {...field}
-                                        id={'main-form-email'}
-                                        placeholderTitle={'Email'}
-                                        error={errors.email?.message}
-                                    />
-                                )}
-                            />
-                        </div>
+                    <form className={s.main_form} onSubmit={handleSubmit(onSubmit)}>
+                        <ControlledInput divClassName={s.form_phone}
+                                         id={'main-form-phone'}
+                                         name={'phone'}
+                                         placeholderTitle={'Номер телефона'}
+                                         control={control}
+                                         error={errors.phone?.message}
+                        />
+                        <ControlledInput divClassName={s.form_email}
+                                         id={'main-form-email'}
+                                         name={'email'}
+                                         placeholderTitle={'Email'}
+                                         control={control}
+                                         error={errors.email?.message}
+                        />
                         <Button
                             id={'button-start'}
                             theme={'primary'}
