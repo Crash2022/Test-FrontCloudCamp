@@ -4,12 +4,16 @@ import s from './Select.module.scss'
 type DefaultSelectPropsType = DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>
 
 type SelectPropsType = DefaultSelectPropsType & {
+    id?: string
+    name?: string
     options?: any[]
     onChangeOption?: (option: any) => void
 }
 
 export const Select: React.FC<SelectPropsType> = (
     {
+        id,
+        name,
         options,
         onChange, onChangeOption,
         ...restProps
@@ -27,45 +31,20 @@ export const Select: React.FC<SelectPropsType> = (
     }
 
     return (
+        // #0
         // <select onChange={onChangeCallback} {...restProps}>
         //     {mappedOptions}
         // </select>
 
-        <div className={s.select_wrapper}>
-            <ul className={s.select}>
-                <li>
-                    <input className={s.select_close} type="radio" name="awesomeness" id="awesomeness-close" value=""/>
-                    <span className={`${s.select_label} ${s.select_label_placeholder}`}>Awesomeness Level</span>
-                </li>
-
-                <li className={s.select_items}>
-                    <input className={s.select_expand} type="radio" name="awesomeness" id="awesomeness-opener"/>
-                    <label className={s.select_closeLabel} htmlFor="awesomeness-close"></label>
-
-                    <ul className={s.select_options}>
-                        <li className={s.select_option}>
-                            <input className={s.select_input} type="radio" name="awesomeness" id="awesomeness-ridiculous"/>
-                            <label className={s.select_label} htmlFor="awesomeness-ridiculous">ridiculous</label>
-                        </li>
-                        <li className={s.select_option}>
-                            <input className={s.select_input} type="radio" name="awesomeness" id="awesomeness-lacking"/>
-                            <label className={s.select_label} htmlFor="awesomeness-ridiculous">lacking</label>
-                        </li>
-
-                        {/*<li className="select_option">*/}
-                        {/*    <input className="select_input" type="radio" name="awesomeness" id="awesomeness-lacking"/>*/}
-                        {/*    <label className="select_label" htmlFor="awesomeness-lacking">lacking</label>*/}
-                        {/*</li>*/}
-
-                        {/*<li className="select_option">*/}
-                        {/*    <input className="select_input" type="radio" name="awesomeness" id="awesomeness-awesomeless"/>*/}
-                        {/*    <label className="select_label" htmlFor="awesomeness-awesomeless">awesomeless</label>*/}
-                        {/*</li>*/}
-                    </ul>
-
-                    <label className={s.select_expandLabel} htmlFor="awesomeness-opener"></label>
-                </li>
-            </ul>
+        <div className={s.select}>
+            <select name={name} id={id}>
+                <option selected disabled>Choose a book format</option>
+                <option value="pdf">PDF</option>
+                <option value="txt">txt</option>
+                <option value="epub">ePub</option>
+                <option value="fb2">fb2</option>
+                <option value="mobi">mobi</option>
+            </select>
         </div>
     )
 }
