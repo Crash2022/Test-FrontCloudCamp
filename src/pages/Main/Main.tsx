@@ -26,8 +26,14 @@ export const Main = () => {
         {id: 3, title: 'Resume', link: 'https://my-portfolio-app-beryl.vercel.app/'},
     ]
 
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
     const MainSchema = yup.object().shape({
-        phone: yup.number().required(validationTitles.required),
+        phone: yup.string()
+            .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
+            .required(validationTitles.required)
+            .min(11, validationTitles.phoneMin)
+            .max(11, validationTitles.phoneMax),
         email: yup.string().required(validationTitles.required).email(validationTitles.email),
     })
 
