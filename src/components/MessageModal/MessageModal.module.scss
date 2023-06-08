@@ -1,0 +1,33 @@
+@import '../../shared/styles/mixins';
+
+.messageModal_mainBox {
+    @include defaultModalStyle;
+
+    .messageModalSuccess {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+        .messageModalSuccess_header {
+            width: 100%;
+            text-align: center;
+            @include h2-text-size;
+        }
+    }
+
+    .messageModalError {
+        .messageModalSuccess_header {
+            width: 100%;
+            text-align: center;
+            @include h2-text-size;
+
+            .header_cancel {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -4,11 +4,13 @@ import {Button} from '../../../shared/ui/Button/Button'
 import {FormPageStepsProps} from '../../../shared/types/all-types'
 import {Textarea} from '../../../shared/ui/Textarea/Textarea'
 import {validationTitles} from '../../../shared/const/validationTitles'
+import {MessageModal} from '../../MessageModal/MessageModal';
 
 export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
 
     const [description, setDescription] = useState<string>('')
     const [descriptionError, setDescriptionError] = useState<string>('')
+    const [openMessageModal, setOpenMessageModal] = useState<boolean>(false)
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
@@ -16,11 +18,14 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
         const trimValue = description.trim()
 
         if (trimValue && trimValue.length <= 200) {
-            alert('submit')
+            // alert('submit')
+            setOpenMessageModal(true)
         } else {
             setDescriptionError(validationTitles.aboutMin)
         }
     }
+
+    const isSuccess = true
 
     useEffect(() => {
         if (description.length > 200) {
@@ -32,6 +37,9 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
 
     return (
         <form className={s.formPage_form} onSubmit={handleSubmit}>
+
+            <MessageModal open={openMessageModal} setOpen={setOpenMessageModal} isSuccess={isSuccess}/>
+
             <div className={s.about_textarea}>
                 <Textarea
                     placeholder={'Введите текст'}
