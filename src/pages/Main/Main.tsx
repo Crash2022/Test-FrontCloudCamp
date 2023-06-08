@@ -1,21 +1,21 @@
 import React from 'react'
 import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
-import FolderIcon from '../../shared/assets/icons/folder-icon.svg'
 import {Controller, SubmitHandler, useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import {validationTitles} from '../../shared/utils/validation-titles'
+import {validationTitles} from '../../shared/const/validation-titles'
 import {Input} from '../../shared/ui/Input/Input'
-import {Button} from '../../shared/ui/Button/Button';
+import {Button} from '../../shared/ui/Button/Button'
+import { useNavigate } from 'react-router-dom'
+import {RoutePaths} from "../../shared/api/paths"
+import {ContactItem} from "../../components/ContactItem/ContactItem"
+import {ContactsType} from "../../shared/types/all-types"
 
-type ContactsType = {
-    id: number
-    title: string
-    link: string
-}
 
 export const Main = () => {
+
+    const navigate = useNavigate()
 
     const lastName: string = 'Чашин'
     const firstName: string = 'Александр'
@@ -43,8 +43,9 @@ export const Main = () => {
         resolver: yupResolver(MainSchema)
     })
 
-    const onSubmit: SubmitHandler<any> = async (data: any) => {
+    const onSubmit: SubmitHandler<any> = (data: any) => {
         // code here
+        // navigate(RoutePaths.FORM)
     }
 
     return (
@@ -61,14 +62,7 @@ export const Main = () => {
                                 {
                                     contacts.map(c => {
                                         return (
-                                            <div key={c.id} className={s.contactItem}>
-                                                <div className={s.contactItem_icon}>
-                                                    <img src={FolderIcon} alt="folder-icon"/>
-                                                </div>
-                                                <div className={s.contactItem_link}>
-                                                    <a href={c.link} target="_blank">{c.title}</a>
-                                                </div>
-                                            </div>
+                                            <ContactItem key={c.id} contact={c} />
                                         )
                                     })
                                 }
@@ -89,7 +83,6 @@ export const Main = () => {
                                     <Input
                                         {...field}
                                         id={'main-form-phone'}
-                                        // placeholder={'Номер телефона'}
                                         placeholderTitle={'Номер телефона'}
                                         error={errors.phone?.message}
                                     />
@@ -104,7 +97,6 @@ export const Main = () => {
                                     <Input
                                         {...field}
                                         id={'main-form-email'}
-                                        // placeholder={'Email'}
                                         placeholderTitle={'Email'}
                                         error={errors.email?.message}
                                     />

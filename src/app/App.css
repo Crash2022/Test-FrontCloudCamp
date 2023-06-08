@@ -1,7 +1,10 @@
 .App {
-    /*max-width: var(--layout-width);*/
-    background-color: var(--app-bg-color);
-    text-align: center;
-    margin: 0 auto;
+    max-width: 100%;
     height: 100vh;
+    /*margin: 0 auto;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--app-bg-color);
+    overflow: hidden;
 }

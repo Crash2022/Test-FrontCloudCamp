@@ -1,13 +1,11 @@
 @import '../../shared/styles/mixins';
 
 .main_mainBox {
-    display: flex;
-    justify-content: center;
-
     .container {
         width: 1400px;
         display: flex;
         justify-content: center;
+        //border: 1px solid black;
 
         .main_mainForm {
             width: 900px;
