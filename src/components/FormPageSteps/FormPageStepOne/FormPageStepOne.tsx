@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import s from './FormPageStepOne.module.scss'
 import {ControlledInput} from '../../../shared/ui/Controlled/ControlledInput'
-import {SubmitHandler, useForm} from 'react-hook-form'
+import {Controller, SubmitHandler, useForm} from 'react-hook-form'
 import {useNavigate} from 'react-router-dom'
 import {Button} from '../../../shared/ui/Button/Button'
 import {RoutePaths} from '../../../shared/api/paths'
@@ -12,14 +12,11 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import {validationTitles} from "../../../shared/const/validationTitles"
 import {specialSymbolsValidation} from "../../../shared/const/validationRegExp"
 
-type SexOptionsTypes = 'Мужчина' | 'Женщина'
-
 export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
     const navigate = useNavigate()
 
-    const sexOptions = ['Мужчина', 'Женщина']
-    const [sexOptionSelect, setSexOptionSelect] = useState<SexOptionsTypes>()
+    const sexOptions: string[] = ['Мужчина', 'Женщина']
 
     const FormPageStepOneSchema = yup.object().shape({
         nickname: yup.string()
@@ -98,15 +95,25 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
                              control={control}
                              error={errors.surname?.message}
             />
-            <Select id={'field-sex'}
-                    name={'sex'}
-                    placeholder={'Выбрать пол'}
-                    placeholderTitle={'Пол'}
-                    options={sexOptions}
-                    value={sexOptionSelect}
-                    onChangeOption={setSexOptionSelect}
-                    error={errors.sex?.message}
+            <Controller
+                name={'sex'}
+                control={control}
+                render={({field}: any) => (
+                    <Select {...field}
+                            ref={null}
+                            id={'field-sex'}
+                            placeholder={'Выбрать пол'}
+                            placeholderTitle={'Пол'}
+                            options={sexOptions}
+                            value={field.value}
+                            onChange={(value) => {
+                                field.onChange(value)
+                            }}
+                            error={errors.sex?.message}
+                    />
+                )}
             />
+
             <div className={s.buttonsBlock}>
                 <Button
                     id={'button-back1'}

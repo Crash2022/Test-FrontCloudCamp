@@ -4,7 +4,7 @@ import s from './Input.module.scss'
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement>
 
-type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
+type InputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
     onChangeText?: (value: string) => void
     onEnter?: () => void
     error?: any
@@ -15,7 +15,7 @@ type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
 }
 
 // @ts-ignore
-export const Input: React.FC<SuperInputTextPropsType> = React.forwardRef((
+export const Input: React.FC<InputTextPropsType> = React.forwardRef((
     {
         onChange,
         onChangeText,
@@ -27,7 +27,6 @@ export const Input: React.FC<SuperInputTextPropsType> = React.forwardRef((
         spanClassName,
         className,
         placeholderTitle,
-
         ...restProps
     }, forwardRef
 ) => {

@@ -48,7 +48,7 @@ export const Select: React.FC<SelectPropsType> = (
             }
             <div className={s.select}>
                 <select name={name} id={id} onChange={onChangeCallback} {...restProps}>
-                    <option selected disabled>{placeholder}</option>
+                    <option>{placeholder}</option>
                     {mappedOptions}
                 </select>
             </div>
