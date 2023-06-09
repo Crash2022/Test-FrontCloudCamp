@@ -10,7 +10,7 @@ import {Select} from '../../../shared/ui/Select/Select'
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {validationTitles} from "../../../shared/const/validationTitles"
-import {specialSymbolsValidation} from "../../../shared/const/validationRegExp"
+import {onlyLettersDigitsRegExp} from "../../../shared/const/validationRegExp"
 
 export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
@@ -22,15 +22,15 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
         nickname: yup.string()
             .required(validationTitles.required)
             .max(30, validationTitles.nicknameMax)
-            .matches(specialSymbolsValidation, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
+            .matches(onlyLettersDigitsRegExp, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
         name: yup.string()
             .required(validationTitles.required)
             .max(50, validationTitles.nameMax)
-            .matches(specialSymbolsValidation, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
+            .matches(onlyLettersDigitsRegExp, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
         surname: yup.string()
             .required(validationTitles.required)
             .max(50, validationTitles.nameMax)
-            .matches(specialSymbolsValidation, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
+            .matches(onlyLettersDigitsRegExp, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
         sex: yup.string()
             .required(validationTitles.required)
     })
