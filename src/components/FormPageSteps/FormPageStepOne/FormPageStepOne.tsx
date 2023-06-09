@@ -73,7 +73,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
         const LS_Sex = localStorage.getItem('sex')
         if (LS_Sex) setValue('sex', LS_Sex)
-    }, [])
+    }, [setValue])
 
     return (
         <form className={s.formPage_form} onSubmit={handleSubmit(onSubmit)}>

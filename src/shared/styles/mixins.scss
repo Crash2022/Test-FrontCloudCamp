@@ -29,15 +29,6 @@
     line-height: 16px;
 }
 
-/*----------------!* Container *!----------------*/
-
-// container mixin
-@mixin defaultContainer() {
-    max-width: var(--layout-width);
-    margin: 0 auto;
-    padding: var(--default-container-padding);
-}
-
 /*----------------!* Default ModalWindow-Window Styles *!----------------*/
 
 @mixin defaultModalStyle() {
