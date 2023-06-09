@@ -21,3 +21,13 @@ export type FormPageStepOneType = {
     surname: string
     sex: string
 }
+
+export type RequestPayloadType = {
+    phone: string | null
+    email: string | null
+    nickname: string | null
+    name: string | null
+    surname: string | null
+    sex: string | null
+    about: string | null
+}

@@ -34,20 +34,19 @@ export const MessageModal = ({open, setOpen, isSuccess, isError}: MessageModalPr
                         <div className={s.messageModalSuccess_header}>
                             Форма успешно отправлена
                         </div>
-                        <div>
+                        <div className={s.messageModal_image}>
                             <img src={SuccessIcon} alt={'success-icon'}/>
                         </div>
-                        <div className={s.messageModalSuccess_button}>
-                            <Button
-                                id={'button-to-main'}
-                                theme={'primary'}
-                                onClick={() => {
-                                    navigate(RoutePaths.MAIN)
-                                }}
-                            >
-                                На главную
-                            </Button>
-                        </div>
+                        <Button
+                            divClassName={s.messageModalSuccess_button}
+                            id={'button-to-main'}
+                            theme={'primary'}
+                            onClick={() => {
+                                navigate(RoutePaths.MAIN)
+                            }}
+                        >
+                            На главную
+                        </Button>
                     </div>
 
                 }
@@ -66,7 +65,7 @@ export const MessageModal = ({open, setOpen, isSuccess, isError}: MessageModalPr
                                 <img src={CancelIcon} alt={'cancel-icon'}/>
                             </div>
                         </div>
-                        <div>
+                        <div className={s.messageModal_image}>
                             <img src={ErrorIcon} alt={'error-icon'}/>
                         </div>
                         <Button
