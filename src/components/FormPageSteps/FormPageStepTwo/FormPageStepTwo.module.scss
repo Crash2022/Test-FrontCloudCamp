@@ -3,9 +3,17 @@
         .added_input {
             margin-bottom: 5px;
         }
-        .add_button {
+        .add_advantage {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: var(--default-padding);
+
+            .add_button {
+
+            }
         }
+
     }
 
     .formPage_form {

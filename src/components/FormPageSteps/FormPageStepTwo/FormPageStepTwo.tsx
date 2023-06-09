@@ -40,6 +40,24 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
     return (
         <div className={s.formPageStepTwo}>
             <div className={s.advantages}>
+                <div className={s.add_advantage}>
+                    <Button
+                        divClassName={s.add_button}
+                        id={'button-add'}
+                        theme={'outline'}
+                        onClick={() => {
+                            // @ts-ignore
+                            dispatch(addAdvantage({advantage: 'new'}))
+                        }}
+                    >
+                        +
+                    </Button>
+                    <div>
+                        Добавить новое поле
+                    </div>
+                </div>
+
+                <AdvantageItem/>
 
                 {
                     advantages && advantages.map((el: string, index: number) => {
@@ -48,21 +66,8 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                         )
                     })
                 }
-
-                <AdvantageItem/>
-
-                <Button
-                    divClassName={s.add_button}
-                    id={'button-add'}
-                    theme={'outline'}
-                    onClick={() => {
-                        // @ts-ignore
-                        dispatch(addAdvantage({advantage: 'new'}))
-                    }}
-                >
-                    +
-                </Button>
             </div>
+
             <form className={s.formPage_form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={s.checkboxGroup}>
                     <div>Checkbox group</div>
