@@ -31,3 +31,8 @@ export type RequestPayloadType = {
     sex: string | null
     about: string | null
 }
+
+export type AdvantageType = {
+    id: string
+    title: string
+}

@@ -1,22 +1,34 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import {AdvantageType} from '../shared/types/all-types';
 
 type AdvantagesStateType = {
-    advantages: string[]
+    advantages: AdvantageType[]
 }
 
 const initialState: AdvantagesStateType = {
-    advantages: []
+    advantages: [{id: '1', title: 'Новый пункт'}]
 }
 
 export const advantagesSlice = createSlice<any, any>({
     name: 'advantages',
     initialState,
     reducers: {
-        addAdvantage: (state: AdvantagesStateType, action: PayloadAction<{ advantage: string }>) => {
-            state.advantages.push(action.payload.advantage)
+        addAdvantage: (state: AdvantagesStateType, action: PayloadAction<{ id: string, title: string}>) => {
+            state.advantages.push(action.payload)
         },
+        updateAdvantageTitle: (state: AdvantagesStateType, action: PayloadAction<{ id: string, title: string}>) => {
+            const index = state.advantages.findIndex(adv => adv.id === action.payload.id)
+            // @ts-ignore
+            state[index].title = action.payload.title
+        },
+        deleteAdvantage: (state: AdvantagesStateType, action: PayloadAction<{ id: string }>) => {
+            const index = state.advantages.findIndex(adv => adv.id === action.payload.id)
+            if (index > -1) {
+                state.advantages.splice(index, 1)
+            }
+        }
     }
 })
 
-export const { addAdvantage } = advantagesSlice.actions
+export const { addAdvantage, updateAdvantageTitle, deleteAdvantage } = advantagesSlice.actions
 export const advantagesReducer = advantagesSlice.reducer

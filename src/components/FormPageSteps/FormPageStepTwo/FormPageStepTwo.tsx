@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {SubmitHandler, useForm} from 'react-hook-form'
 import s from './FormPageStepTwo.module.scss'
 import {Button} from '../../../shared/ui/Button/Button'
-import {FormPageStepsProps} from '../../../shared/types/all-types'
+import {AdvantageType, FormPageStepsProps} from '../../../shared/types/all-types'
 import {ControlledCheckbox} from '../../../shared/ui/Controlled/ControlledCheckbox'
 import {RadioButton} from '../../../shared/ui/RadioButton/RadioButton'
 import {useAppDispatch} from '../../../shared/hooks/useAppDispatch'
@@ -10,6 +10,7 @@ import {useAppSelector} from '../../../shared/hooks/useAppSelector'
 import {selectorAdvantages} from '../../../store/selectors'
 import {addAdvantage} from '../../../store/advantagesSlice'
 import {AdvantageItem} from '../../AdvantageItem/AdvantageItem'
+import {v1} from 'uuid'
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
@@ -26,7 +27,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
         handleSubmit
     } = useForm<any>({
         defaultValues: {
-            checkboxOne: false,
+            checkboxOne: true,
             checkboxTwo: false,
             checkboxThree: false,
         }
@@ -47,7 +48,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                         theme={'outline'}
                         onClick={() => {
                             // @ts-ignore
-                            dispatch(addAdvantage({advantage: 'new'}))
+                            dispatch(addAdvantage({id: v1(), title: 'Редактировать'}))
                         }}
                     >
                         +
@@ -56,13 +57,10 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                         Добавить новое поле
                     </div>
                 </div>
-
-                <AdvantageItem/>
-
                 {
-                    advantages && advantages.map((el: string, index: number) => {
+                    advantages && advantages.map((adv: AdvantageType) => {
                         return (
-                            <div key={index} className={s.added_input}>{el}</div>
+                            <AdvantageItem key={adv.id} advantage={adv}/>
                         )
                     })
                 }

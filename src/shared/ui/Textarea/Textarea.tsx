@@ -20,8 +20,8 @@ type CustomTextareaPropsType = DefaultInputPropsType & {
     helperText?: string
     divClassName?: string
     spanClassName?: string
-    textLength?: any
-    textMaxLength?: any
+    textLength?: number
+    textMaxLength?: string
 }
 
 export const Textarea: React.FC<CustomTextareaPropsType> = ({
@@ -57,7 +57,7 @@ export const Textarea: React.FC<CustomTextareaPropsType> = ({
                 {/*{error && <div className={s.errorMessage}>{error}</div>}*/}
 
                 {
-                    textLength >= 0 && textMaxLength ?
+                    textLength! >= 0 && textMaxLength ?
                         <div className={s.textarea_length}>{textLength} / {textMaxLength}</div>
                         : ''
                 }
