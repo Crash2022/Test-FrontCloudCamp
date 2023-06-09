@@ -7,6 +7,7 @@ export const validationTitles = {
     phoneMax: 'Поле должно состоять из 11 цифр',
 
     notSpecialSymbols: 'Разрешены только буквы и цифры',
+    onlyLetters: 'Разрешены только буквы',
     nicknameMax: 'Максимальная длина 30 символов',
     nameMax: 'Максимальная длина 50 символов',
 

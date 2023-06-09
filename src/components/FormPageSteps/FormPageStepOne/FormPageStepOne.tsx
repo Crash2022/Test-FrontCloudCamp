@@ -10,13 +10,14 @@ import {Select} from '../../../shared/ui/Select/Select'
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {validationTitles} from "../../../shared/const/validationTitles"
-import {onlyLettersDigitsRegExp} from "../../../shared/const/validationRegExp"
+import {onlyLettersDigitsRegExp, onlyLettersRegExp} from '../../../shared/const/validationRegExp'
 
 export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
     const navigate = useNavigate()
 
     const sexOptions: string[] = ['Мужской', 'Женский']
+    // const sexOptions: string[] = ['man', 'woman']
 
     const FormPageStepOneSchema = yup.object().shape({
         nickname: yup.string()
@@ -26,11 +27,11 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
         name: yup.string()
             .required(validationTitles.required)
             .max(50, validationTitles.nameMax)
-            .matches(onlyLettersDigitsRegExp, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
+            .matches(onlyLettersRegExp, {message: validationTitles.onlyLetters, excludeEmptyString: false}),
         surname: yup.string()
             .required(validationTitles.required)
             .max(50, validationTitles.nameMax)
-            .matches(onlyLettersDigitsRegExp, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
+            .matches(onlyLettersRegExp, {message: validationTitles.onlyLetters, excludeEmptyString: false}),
         sex: yup.string()
             .required(validationTitles.required)
     })
