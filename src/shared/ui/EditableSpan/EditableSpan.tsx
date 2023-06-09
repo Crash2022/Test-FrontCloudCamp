@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react'
-import s from './EditableSpan.module.scss'
+import s from '../Input/Input.module.scss'
+import {Input} from '../Input/Input'
 
 type EditableSpanPropsType = {
     title: string
@@ -16,6 +17,8 @@ export const EditableSpan: React.FC<EditableSpanPropsType> = React.memo(({
                                                                              inputClassName,
                                                                              spanClassName
                                                                          }) => {
+
+    // const MESSAGE_INPUT_VALUE_LENGTH = 'Text length must be 1-100 symbols';
 
     const [editMode, setEditMode] = useState<boolean>(false)
     const [inputTitle, setInputTitle] = useState<string>('')
@@ -54,20 +57,24 @@ export const EditableSpan: React.FC<EditableSpanPropsType> = React.memo(({
     return (
         editMode
             ?
-            <div className={inputDivClassName ? inputDivClassName : ''}>
-                <input
-                    className={inputClassName ? inputClassName : s.editableSpan_input}
+            <div className={inputDivClassName ? inputDivClassName : ''} style={{height: '44px'}}>
+                <Input
+                    // id={id}
+                    // type={type}
+                    placeholder={'Введите текст'}
+                    // placeholderTitle={placeholderTitle}
                     value={inputTitle}
                     onChange={onChangeInputHandler}
                     onBlur={onClickNotEditSpanHandler}
                     onKeyDown={enterChangeTitle}
+                    // error={error}
                     autoFocus
-                    // error={!!error}
+                    // disabled={disabled ?? false}
                 />
             </div>
-            : <span onDoubleClick={onClickEditSpanHandler}
-                    className={spanClassName ? spanClassName : s.editableSpan_text}>
+            : <div className={spanClassName ? spanClassName : s.customInput}
+                   onDoubleClick={onClickEditSpanHandler}>
                 {title}
-        </span>
+        </div>
     );
 })

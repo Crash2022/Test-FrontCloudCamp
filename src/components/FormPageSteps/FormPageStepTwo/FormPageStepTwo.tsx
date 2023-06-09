@@ -9,6 +9,7 @@ import {useAppDispatch} from '../../../shared/hooks/useAppDispatch'
 import {useAppSelector} from '../../../shared/hooks/useAppSelector'
 import {selectorAdvantages} from '../../../store/selectors'
 import {addAdvantage} from '../../../store/advantagesSlice'
+import {AdvantageItem} from '../../AdvantageItem/AdvantageItem'
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
@@ -47,6 +48,8 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                         )
                     })
                 }
+
+                <AdvantageItem/>
 
                 <Button
                     divClassName={s.add_button}

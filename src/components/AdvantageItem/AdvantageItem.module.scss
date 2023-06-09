@@ -1,0 +1,19 @@
+.advantage_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+
+    .editable_span {
+        width: 100%;
+        max-width: 300px;
+    }
+    .delete_image {
+        img {
+            &:hover {
+                filter: invert(19%) sepia(100%) saturate(6078%) hue-rotate(357deg) brightness(112%) contrast(118%);
+                cursor: pointer;
+            }
+        }
+    }
+}
