@@ -5,6 +5,8 @@ import {FormPageStepsProps} from '../../../shared/types/all-types'
 import {Textarea} from '../../../shared/ui/Textarea/Textarea'
 import {validationTitles} from '../../../shared/const/validationTitles'
 import {MessageModal} from '../../MessageModal/MessageModal'
+import {useSetFormDataMutation} from "../../../services/FormPageService"
+import {LoaderScreen} from "../../../shared/ui/Loader/LoaderScreen"
 
 export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
 
@@ -12,21 +14,38 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
     const [aboutError, setAboutError] = useState<string>('')
     const [openMessageModal, setOpenMessageModal] = useState<boolean>(false)
 
-    const handleSubmit = (e: any) => {
+    const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
+
+    const handleSubmit = async (e: any) => {
         e.preventDefault()
 
         const trimValue = about.trim()
 
         if (trimValue && trimValue.length <= 200) {
             localStorage.setItem('about', about)
+
+            try {
+                const response = await setFormData({
+                    phone: localStorage.getItem('phone'),
+                    email: localStorage.getItem('email'),
+                    nickname: localStorage.getItem('nickname'),
+                    name: localStorage.getItem('name'),
+                    surname: localStorage.getItem('surname'),
+                    sex: localStorage.getItem('sex'),
+                })
+                console.log(response)
+            } catch (error) {
+                console.log(error)
+            }
+
             setOpenMessageModal(true)
         } else {
             setAboutError(validationTitles.aboutMin)
         }
     }
 
-    const isSuccess = true
-    const isError = false
+    // const isSuccess = true
+    // const isError = false
 
     useEffect(() => {
         if (about.length > 200) {
@@ -40,6 +59,8 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
         const LS_About = localStorage.getItem('about')
         if (LS_About) setAbout(LS_About)
     }, [])
+
+    if (isLoading) return <LoaderScreen variant={'circle'} />
 
     return (
         <form className={s.formPage_form} onSubmit={handleSubmit}>
