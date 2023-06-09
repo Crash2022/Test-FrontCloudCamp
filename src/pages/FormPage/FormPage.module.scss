@@ -18,6 +18,10 @@
             .formPage_steps {
                 margin-bottom: 100px;
             }
+
+            @media(max-width: 500px) {
+                padding: 66px 55px 80px 55px;
+            }
         }
     //}
 //}

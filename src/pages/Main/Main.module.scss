@@ -24,6 +24,10 @@
                 align-items: center;
                 gap: var(--default-padding);
 
+                @media(max-width: 500px) {
+                    height: 200px;
+                }
+
                 .header_info {
                     display: flex;
                     flex-direction: column;
@@ -36,6 +40,10 @@
                     .header_infoContacts {
                         display: flex;
                         gap: 18px;
+
+                        @media(max-width: 500px) {
+                            flex-wrap: wrap;
+                        }
 
                         .contactItem {
                             display: flex;
