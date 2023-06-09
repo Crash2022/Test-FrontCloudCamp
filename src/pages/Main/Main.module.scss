@@ -1,14 +1,17 @@
 @import '../../shared/styles/mixins';
 
-.mainPage_mainBox {
-    .container {
-        width: 1400px;
-        display: flex;
-        justify-content: center;
+//.mainPage_mainBox {
+//    .container {
+//        width: 1400px;
+//        display: flex;
+//        justify-content: center;
 
         .main_loginCard {
-            width: 900px;
-            height: 704px;
+            width: 95%;
+            max-width: 900px;
+
+            //width: 900px; // без адаптива
+            height: 700px;
             background-color: var(--form-bg-color);
             border-radius: var(--default-padding);
             margin-top: var(--default-padding);
@@ -61,5 +64,5 @@
                 }
             }
         }
-    }
-}
+    //}
+//}

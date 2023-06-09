@@ -11,8 +11,8 @@ export const FormPage = () => {
     const [step, setStep] = useState<StepsType>('one')
 
     return (
-        <div className={s.formPage_mainBox}>
-            <div className={s.container}>
+        // <div className={s.formPage_mainBox}>
+        //     <div className={s.container}>
                 <div className={s.formPage_card}>
                     <div className={s.formPage_steps}>
                         <StepLine/>
@@ -27,7 +27,7 @@ export const FormPage = () => {
                             step === 'three' ? <FormPageStepThree setStep={setStep}/> : ''
                         }
                 </div>
-            </div>
-        </div>
+        //     </div>
+        // </div>
     )
 }

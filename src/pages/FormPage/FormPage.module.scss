@@ -1,12 +1,15 @@
-.formPage_mainBox {
-    .container {
-        width: 1400px;
-        display: flex;
-        justify-content: center;
+//.formPage_mainBox {
+    //.container {
+    //    width: 1400px;
+    //    display: flex;
+    //    justify-content: center;
 
         .formPage_card {
-            width: 900px;
-            height: 100%;
+            width: 90%;
+            max-width: 900px;
+
+            //width: 900px; // без адаптива
+            //height: 100%;
             background-color: var(--form-bg-color);
             border-radius: var(--default-padding);
             margin-top: var(--default-padding);
@@ -16,5 +19,5 @@
                 margin-bottom: 100px;
             }
         }
-    }
-}
+    //}
+//}

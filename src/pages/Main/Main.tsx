@@ -64,8 +64,8 @@ export const Main = () => {
     }, [])
 
     return (
-        <div className={s.mainPage_mainBox}>
-            <div className={s.container}>
+        // <div className={s.mainPage_mainBox}>
+        //     <div className={s.container}>
                 <div className={s.main_loginCard}>
                     <div className={s.userInfo_header}>
                         <Avatar lastName={lastName} firstName={firstName}/>
@@ -108,7 +108,7 @@ export const Main = () => {
                         </Button>
                     </form>
                 </div>
-            </div>
-        </div>
+        //     </div>
+        // </div>
     )
 }
