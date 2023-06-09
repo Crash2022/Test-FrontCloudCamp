@@ -32,6 +32,7 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
                     name: localStorage.getItem('name'),
                     surname: localStorage.getItem('surname'),
                     sex: localStorage.getItem('sex'),
+                    about: localStorage.getItem('about')
                 })
                 console.log(response)
             } catch (error) {
@@ -43,9 +44,6 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
             setAboutError(validationTitles.aboutMin)
         }
     }
-
-    // const isSuccess = true
-    // const isError = false
 
     useEffect(() => {
         if (about.length > 200) {
