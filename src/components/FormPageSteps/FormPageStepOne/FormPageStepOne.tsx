@@ -34,8 +34,8 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
             .required(validationTitles.required)
             .max(50, validationTitles.nameMax)
             .matches(specialSymbolsValidation, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
-        // sex: yup.string()
-        //     .required(validationTitles.required)
+        sex: yup.string()
+            .required(validationTitles.required)
     })
 
     const {

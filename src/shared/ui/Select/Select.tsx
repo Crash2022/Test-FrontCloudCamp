@@ -42,7 +42,7 @@ export const Select: React.FC<SelectPropsType> = (
     const finalSpanClassName = `${error ? s.error : ''} ${spanClassName ? spanClassName : ''}`
 
     return (
-        <div>
+        <div className={s.select_wrapper}>
             {
                 placeholderTitle ? <div className={s.placeholder_title}>{placeholderTitle}</div> : ''
             }
