@@ -19,6 +19,5 @@ export const setupStore = () => {
 export type AppRootStateType = ReturnType<typeof rootReducer>
 export type AppStoreType = ReturnType<typeof setupStore>
 export type AppDispatchType = AppStoreType['dispatch']
-
-// export type AppDispatchType = typeof store.dispatch
+// export type AppDispatchType = typeof setupStore.dispatch
 // export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootStateType, unknown, any>
