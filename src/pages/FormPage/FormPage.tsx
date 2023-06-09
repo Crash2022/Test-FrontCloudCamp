@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import s from './FormPage.module.scss'
 import {FormPageStepOne} from "../../components/FormPageSteps/FormPageStepOne/FormPageStepOne"
 import {FormPageStepTwo} from "../../components/FormPageSteps/FormPageStepTwo/FormPageStepTwo"
@@ -9,6 +9,13 @@ import {StepLine} from "../../shared/ui/StepLine/StepLine"
 export const FormPage = () => {
 
     const [step, setStep] = useState<StepsType>('one')
+
+    useEffect(() => {
+        const LS_Step = localStorage.getItem('step')
+        if (LS_Step) { // @ts-ignore
+            setStep(LS_Step)
+        }
+    }, [])
 
     return (
         // <div className={s.formPage_mainBox}>

@@ -33,6 +33,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
 
     const onSubmit: SubmitHandler<any> = (data: any) => {
         setStep('three')
+        localStorage.setItem('step', 'three')
     }
 
     return (
@@ -95,6 +96,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                         theme={'outline'}
                         onClick={() => {
                             setStep('one')
+                            localStorage.setItem('step', 'one')
                         }}
                     >
                         Назад

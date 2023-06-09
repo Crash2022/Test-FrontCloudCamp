@@ -16,7 +16,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
     const navigate = useNavigate()
 
-    const sexOptions: string[] = ['Мужчина', 'Женщина']
+    const sexOptions: string[] = ['Мужской', 'Женский']
 
     const FormPageStepOneSchema = yup.object().shape({
         nickname: yup.string()
@@ -55,6 +55,8 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
         localStorage.setItem('name', control._getWatch('name'))
         localStorage.setItem('surname', control._getWatch('surname'))
         localStorage.setItem('sex', control._getWatch('sex'))
+
+        localStorage.setItem('step', 'two')
         setStep('two')
     }
 
