@@ -41,7 +41,6 @@ export const Input: React.FC<SuperInputTextPropsType> = React.forwardRef((
         onEnter && e.key === 'Enter' && onEnter()
     }
 
-    // чтобы изменить стандартный див инпута, необходимо передать divClassName={your_className}
     const finalInputDivWrapperClassName = `${divClassName ? divClassName : s.inputWrapper}`
     const finalInputClassName = `${error ? s.errorInput : ''} ${className ? className : s.customInput}`
     const finalSpanClassName = `${error ? s.error : ''} ${spanClassName ? spanClassName : ''}`

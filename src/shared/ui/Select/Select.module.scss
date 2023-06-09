@@ -65,3 +65,10 @@ select::-ms-expand {
 .option_item {
     color: black;
 }
+
+.errorWrapper {
+    text-align: left;
+    padding-top: 5px;
+    font-size: 14px;
+    color: red;
+}

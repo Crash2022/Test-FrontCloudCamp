@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
 import {SubmitHandler, useForm} from 'react-hook-form'
-// import {yupResolver} from '@hookform/resolvers/yup'
-// import * as yup from 'yup'
-// import {validationTitles} from '../../shared/const/validationTitles'
-// import {phoneRegExp} from "../../shared/const/phoneRegExp"
+import * as yup from 'yup'
+import {yupResolver} from '@hookform/resolvers/yup'
+import {validationTitles} from '../../shared/const/validationTitles'
+import {phoneRegExp} from "../../shared/const/validationRegExp"
 import {Button} from '../../shared/ui/Button/Button'
 import {useNavigate} from 'react-router-dom'
 import {RoutePaths} from "../../shared/api/paths"
@@ -27,30 +27,41 @@ export const Main = () => {
         {id: 3, title: 'Resume', link: 'https://my-portfolio-app-beryl.vercel.app/'},
     ]
 
-    // const MainSchema = yup.object().shape({
-    //     phone: yup.string()
-    //         .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
-    //         .required(validationTitles.required)
-    //         .min(11, validationTitles.phoneMin)
-    //         .max(11, validationTitles.phoneMax),
-    //     email: yup.string().required(validationTitles.required).email(validationTitles.email),
-    // })
+    const MainSchema = yup.object().shape({
+        phone: yup.string()
+            // .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
+            .required(validationTitles.required)
+            .min(12, validationTitles.phoneMin)
+            .max(12, validationTitles.phoneMax),
+        email: yup.string().required(validationTitles.required).email(validationTitles.email),
+    })
 
     const {
         control,
         handleSubmit,
+        setValue,
         formState: {errors}
     } = useForm<MainPageFormType>({
         defaultValues: {
-            phone: '',
+            phone: '+7',
             email: ''
         },
-        // resolver: yupResolver(MainSchema)
+        resolver: yupResolver(MainSchema)
     })
 
     const onSubmit: SubmitHandler<MainPageFormType> = (data: MainPageFormType) => {
+        localStorage.setItem('phone', control._getWatch('phone'))
+        localStorage.setItem('email', control._getWatch('email'))
         navigate(RoutePaths.FORM)
     }
+
+    useEffect(() => {
+        const LS_Phone = localStorage.getItem('phone')
+        if (LS_Phone) setValue('phone', LS_Phone)
+
+        const LS_Email = localStorage.getItem('email')
+        if (LS_Email) setValue('email', LS_Email)
+    }, [])
 
     return (
         <div className={s.mainPage_mainBox}>

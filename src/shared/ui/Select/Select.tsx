@@ -10,6 +10,8 @@ type SelectPropsType = DefaultSelectPropsType & {
     placeholderTitle?: string
     options?: any[]
     onChangeOption?: (option: any) => void
+    error?: any
+    spanClassName?: string
 }
 
 export const Select: React.FC<SelectPropsType> = (
@@ -19,7 +21,10 @@ export const Select: React.FC<SelectPropsType> = (
         placeholder,
         placeholderTitle,
         options,
-        onChange, onChangeOption,
+        onChange,
+        onChangeOption,
+        error,
+        spanClassName,
         ...restProps
     }
 ) => {
@@ -34,6 +39,8 @@ export const Select: React.FC<SelectPropsType> = (
         onChangeOption && onChangeOption(e.currentTarget.value)
     }
 
+    const finalSpanClassName = `${error ? s.error : ''} ${spanClassName ? spanClassName : ''}`
+
     return (
         <div>
             {
@@ -45,6 +52,13 @@ export const Select: React.FC<SelectPropsType> = (
                     {mappedOptions}
                 </select>
             </div>
+            {
+                error ?
+                    <div className={s.errorWrapper}>
+                        {error && <span className={finalSpanClassName}>{error}</span>}
+                    </div>
+                    : ''
+            }
         </div>
     )
 }

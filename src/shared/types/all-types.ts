@@ -18,5 +18,6 @@ export type MainPageFormType = {
 export type FormPageStepOneType = {
     nickname: string
     name: string
-    sername: string
+    surname: string
+    sex: string
 }

@@ -2,6 +2,7 @@
 
 .inputWrapper {
     width: 100%;
+    height: 100px;
 }
 
 .customInput {
@@ -13,7 +14,8 @@
     border-radius: 4px;
     padding: 12px;
     font-size: 14px;
-    color: var(--default-gray-color-dark);
+    //color: var(--default-gray-color-dark);
+    color: black;
     opacity: 0.7;
 }
 .customInput:focus-visible {
