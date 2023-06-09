@@ -8,19 +8,20 @@ import {MessageModal} from '../../MessageModal/MessageModal'
 
 export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
 
-    const [description, setDescription] = useState<string>('')
-    const [descriptionError, setDescriptionError] = useState<string>('')
+    const [about, setAbout] = useState<string>('')
+    const [aboutError, setAboutError] = useState<string>('')
     const [openMessageModal, setOpenMessageModal] = useState<boolean>(false)
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
 
-        const trimValue = description.trim()
+        const trimValue = about.trim()
 
         if (trimValue && trimValue.length <= 200) {
+            localStorage.setItem('about', about)
             setOpenMessageModal(true)
         } else {
-            setDescriptionError(validationTitles.aboutMin)
+            setAboutError(validationTitles.aboutMin)
         }
     }
 
@@ -28,12 +29,17 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
     const isError = false
 
     useEffect(() => {
-        if (description.length > 200) {
-            setDescriptionError(validationTitles.aboutMax)
+        if (about.length > 200) {
+            setAboutError(validationTitles.aboutMax)
         } else {
-            setDescriptionError('')
+            setAboutError('')
         }
-    }, [description])
+    }, [about])
+
+    useEffect(() => {
+        const LS_About = localStorage.getItem('about')
+        if (LS_About) setAbout(LS_About)
+    }, [])
 
     return (
         <form className={s.formPage_form} onSubmit={handleSubmit}>
@@ -48,15 +54,14 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
                 <Textarea
                     placeholder={'Введите текст'}
                     placeholderTitle={'Обо мне'}
-                    value={description}
+                    value={about}
                     onChange={(e) => {
-                        setDescription(e.currentTarget.value)
+                        setAbout(e.currentTarget.value)
                     }}
-                    error={descriptionError}
-                    textLength={description.length}
+                    error={aboutError}
+                    textLength={about.length}
                     textMaxLength={'200'}
                 />
-                {/*<div className={s.textarea_length}>{description.length} / 200</div>*/}
             </div>
             <div className={s.buttonsBlock}>
                 <Button

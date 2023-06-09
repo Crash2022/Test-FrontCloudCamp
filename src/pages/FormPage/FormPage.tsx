@@ -4,6 +4,7 @@ import {FormPageStepOne} from "../../components/FormPageSteps/FormPageStepOne/Fo
 import {FormPageStepTwo} from "../../components/FormPageSteps/FormPageStepTwo/FormPageStepTwo"
 import {FormPageStepThree} from "../../components/FormPageSteps/FormPageStepThree/FormPageStepThree"
 import {StepsType} from "../../shared/types/all-types"
+import {StepLine} from "../../shared/ui/StepLine/StepLine"
 
 export const FormPage = () => {
 
@@ -14,7 +15,7 @@ export const FormPage = () => {
             <div className={s.container}>
                 <div className={s.formPage_card}>
                     <div className={s.formPage_steps}>
-                        1-2-3
+                        <StepLine/>
                     </div>
                         {
                             step === 'one' ? <FormPageStepOne setStep={setStep}/> : ''
