@@ -16,11 +16,12 @@ type CustomTextareaPropsType = DefaultInputPropsType & {
     onChangeText?: (value: string) => void
     onEnter?: () => void
     error?: ReactNode
-    // placeholder?: string
     placeholderTitle?: string
     helperText?: string
     divClassName?: string
     spanClassName?: string
+    textLength?: any
+    textMaxLength?: any
 }
 
 export const Textarea: React.FC<CustomTextareaPropsType> = ({
@@ -29,15 +30,15 @@ export const Textarea: React.FC<CustomTextareaPropsType> = ({
     onKeyPress,
     onEnter,
     error,
-    // placeholder,
-                                                                placeholderTitle,
+    placeholderTitle,
     helperText, // error для Controlled InputUI (React Hook Forms)
     className,
     divClassName,
+    textLength,
+    textMaxLength,
     ...restProps // все остальные пропсы попадут в объект restProps
 }) => {
     const onChangeCallback = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        // onChange && onChange(e);
         onChangeText && onChangeText(e.currentTarget.value)
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -50,9 +51,17 @@ export const Textarea: React.FC<CustomTextareaPropsType> = ({
     return (
         <div className={finalTextareaDivWrapperClassName}>
             <div className={s.placeholder}>{placeholderTitle}</div>
-            {/* {error && <span className={s.errorMessage}>{error}</span>} */}
             <textarea onChange={onChangeCallback} onKeyPress={onKeyPressCallback} {...restProps} />
-            {error && <span className={s.errorMessage}>{error}</span>}
+            <div className={s.infoSpan}>
+                <div className={s.errorMessage}>{error && error}</div>
+                {/*{error && <div className={s.errorMessage}>{error}</div>}*/}
+
+                {
+                    textLength >= 0 && textMaxLength ?
+                        <div className={s.textarea_length}>{textLength} / {textMaxLength}</div>
+                        : ''
+                }
+            </div>
         </div>
     )
 }

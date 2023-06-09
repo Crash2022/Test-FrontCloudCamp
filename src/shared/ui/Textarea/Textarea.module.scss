@@ -34,9 +34,21 @@
         color: var(--default-gray-color-dark);
         opacity: 0.7;
     }
+
+    .infoSpan {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 25px;
+
+        .errorMessage {
+            color: red;
+            @include regular-text-16;
+        }
+        .textarea_length {
+            @include small-text-12;
+        }
+    }
 }
 
-.errorMessage {
-    color: red;
-    @include regular-text-16;
-}
+

@@ -24,8 +24,8 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
         }
     }
 
-    const isSuccess = false
-    const isError = true
+    const isSuccess = true
+    const isError = false
 
     useEffect(() => {
         if (description.length > 200) {
@@ -53,8 +53,10 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
                         setDescription(e.currentTarget.value)
                     }}
                     error={descriptionError}
+                    textLength={description.length}
+                    textMaxLength={'200'}
                 />
-                <div className={s.textarea_length}>{description.length} / 200</div>
+                {/*<div className={s.textarea_length}>{description.length} / 200</div>*/}
             </div>
             <div className={s.buttonsBlock}>
                 <Button
