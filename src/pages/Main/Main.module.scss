@@ -44,19 +44,6 @@
                         @media(max-width: 500px) {
                             flex-wrap: wrap;
                         }
-
-                        .contactItem {
-                            display: flex;
-                            gap: 5px;
-
-                            .contactItem_icon {
-
-                            }
-                            .contactItem_link {
-                                color: #5558FA;
-                                font-size: 12px;
-                            }
-                        }
                     }
                 }
             }

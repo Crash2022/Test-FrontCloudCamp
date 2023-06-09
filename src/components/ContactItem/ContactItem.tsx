@@ -1,5 +1,5 @@
 import React from 'react'
-import s from "../../pages/Main/Main.module.scss"
+import s from './ContactItem.module.scss'
 import FolderIcon from "../../shared/assets/icons/folder-icon.svg"
 import {ContactsType} from "../../shared/types/all-types"
 
