@@ -88,6 +88,7 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
                     theme={'outline'}
                     onClick={() => {
                         setStep('two')
+                        localStorage.setItem('step', 'two')
                     }}
                 >
                     Назад
