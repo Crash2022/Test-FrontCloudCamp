@@ -68,7 +68,7 @@ export const EditableSpan: React.FC<EditableSpanPropsType> = React.memo(({
                 />
             </div>
             : <div className={spanClassName ? spanClassName : s.customInput}
-                   onDoubleClick={onClickEditSpanHandler}>
+                   onClick={onClickEditSpanHandler}>
                 {title}
         </div>
     )

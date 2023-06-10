@@ -16,7 +16,7 @@ export const AdvantageItem = ({advantage}: AdvantageItemProps) => {
 
     const changeAdvantageTitleHandler = useCallback((newInputValue: string) => {
         // @ts-ignore
-        dispatch(updateAdvantageTitle({id: advantage.id, title: newInputValue}))
+        dispatch(updateAdvantageTitle({id: advantage.id, title: newInputValue.trim()}))
     }, [dispatch, advantage.id])
 
     const deleteAdvantageHandler = useCallback(() => {
