@@ -7,6 +7,8 @@ import {Button} from '../../shared/ui/Button/Button'
 import SuccessIcon from '../../shared/assets/icons/success-icon.svg'
 import ErrorIcon from '../../shared/assets/icons/error-icon.svg'
 import CancelIcon from '../../shared/assets/icons/cancel-icon.svg'
+import {useAppDispatch} from "../../shared/hooks/useAppDispatch"
+import {clearAdvantages} from "../../store/advantages-slice"
 
 interface MessageModalProps {
     open: boolean
@@ -17,6 +19,7 @@ interface MessageModalProps {
 
 export const MessageModal = ({open, setOpen, isSuccess, isError}: MessageModalProps) => {
 
+    const dispatch = useAppDispatch()
     const navigate = useNavigate()
 
     return (
@@ -43,6 +46,9 @@ export const MessageModal = ({open, setOpen, isSuccess, isError}: MessageModalPr
                             theme={'primary'}
                             onClick={() => {
                                 navigate(RoutePaths.MAIN)
+                                localStorage.clear()
+                                // @ts-ignore
+                                dispatch(clearAdvantages())
                             }}
                         >
                             На главную

@@ -18,23 +18,13 @@ export const FormPage = () => {
     }, [])
 
     return (
-        // <div className={s.formPage_mainBox}>
-        //     <div className={s.container}>
-                <div className={s.formPage_card}>
-                    <div className={s.formPage_steps}>
-                        <StepLine/>
-                    </div>
-                        {
-                            step === 'one' ? <FormPageStepOne setStep={setStep}/> : ''
-                        }
-                        {
-                            step === 'two' ? <FormPageStepTwo setStep={setStep}/> : ''
-                        }
-                        {
-                            step === 'three' ? <FormPageStepThree setStep={setStep}/> : ''
-                        }
-                </div>
-        //     </div>
-        // </div>
+        <div className={s.formPage_card}>
+            <div className={s.formPage_steps}>
+                <StepLine/>
+            </div>
+            { step === 'one' ? <FormPageStepOne setStep={setStep}/> : '' }
+            { step === 'two' ? <FormPageStepTwo setStep={setStep}/> : '' }
+            { step === 'three' ? <FormPageStepThree setStep={setStep}/> : '' }
+        </div>
     )
 }

@@ -8,7 +8,7 @@ import {RadioButton} from '../../../shared/ui/RadioButton/RadioButton'
 import {useAppDispatch} from '../../../shared/hooks/useAppDispatch'
 import {useAppSelector} from '../../../shared/hooks/useAppSelector'
 import {selectorAdvantages} from '../../../store/selectors'
-import {addAdvantage} from '../../../store/advantagesSlice'
+import {addAdvantage} from '../../../store/advantages-slice'
 import {AdvantageItem} from '../../AdvantageItem/AdvantageItem'
 import {v1} from 'uuid'
 import {useSnackbar} from "notistack"

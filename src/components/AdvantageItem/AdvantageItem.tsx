@@ -3,7 +3,7 @@ import s from './AdvantageItem.module.scss'
 import TrashIcon from '../../shared/assets/icons/trash-icon.svg'
 import {EditableSpan} from '../../shared/ui/EditableSpan/EditableSpan'
 import {useAppDispatch} from '../../shared/hooks/useAppDispatch'
-import {updateAdvantageTitle, deleteAdvantage} from '../../store/advantagesSlice'
+import {updateAdvantageTitle, deleteAdvantage} from '../../store/advantages-slice'
 import {AdvantageType} from '../../shared/types/all-types'
 
 type AdvantageItemProps = {

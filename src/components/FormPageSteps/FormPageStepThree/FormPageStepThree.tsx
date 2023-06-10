@@ -15,7 +15,6 @@ import {noSpacesRexExp} from "../../../shared/const/validationRegExp"
 export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
 
     const [openMessageModal, setOpenMessageModal] = useState<boolean>(false)
-
     const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
 
     const FormPageStepThreeSchema = yup.object().shape({

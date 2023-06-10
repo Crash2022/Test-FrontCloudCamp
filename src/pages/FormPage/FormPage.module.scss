@@ -1,28 +1,17 @@
-//.formPage_mainBox {
-    //.container {
-    //    width: 1400px;
-    //    display: flex;
-    //    justify-content: center;
+.formPage_card {
+    width: 90%;
+    max-width: 900px;
+    border: 1px solid var(--snippet-border);
+    background-color: var(--form-bg-color);
+    border-radius: var(--default-padding);
+    margin-top: var(--default-padding);
+    padding: 66px 110px 80px 110px;
 
-        .formPage_card {
-            width: 90%;
-            max-width: 900px;
-            border: 1px solid var(--snippet-border);
+    .formPage_steps {
+        margin-bottom: 100px;
+    }
 
-            //width: 900px; // без адаптива
-            //height: 100%;
-            background-color: var(--form-bg-color);
-            border-radius: var(--default-padding);
-            margin-top: var(--default-padding);
-            padding: 66px 110px 80px 110px;
-
-            .formPage_steps {
-                margin-bottom: 100px;
-            }
-
-            @media(max-width: 500px) {
-                padding: 66px 55px 80px 55px;
-            }
-        }
-    //}
-//}
+    @media(max-width: 500px) {
+        padding: 66px 55px 80px 55px;
+    }
+}

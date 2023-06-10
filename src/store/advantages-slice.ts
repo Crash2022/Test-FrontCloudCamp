@@ -26,9 +26,17 @@ export const advantagesSlice = createSlice<any, any>({
             if (index > -1) {
                 state.advantages.splice(index, 1)
             }
-        }
+        },
+        clearAdvantages: (state: AdvantagesStateType, action: PayloadAction<{}>) => {
+            state.advantages = []
+        },
     }
 })
 
-export const { addAdvantage, updateAdvantageTitle, deleteAdvantage } = advantagesSlice.actions
+export const {
+    addAdvantage,
+    updateAdvantageTitle,
+    deleteAdvantage,
+    clearAdvantages
+} = advantagesSlice.actions
 export const advantagesReducer = advantagesSlice.reducer

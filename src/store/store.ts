@@ -1,6 +1,6 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import {formPageAPI} from '../services/FormPageService'
-import {advantagesReducer} from './advantagesSlice'
+import {advantagesReducer} from './advantages-slice'
 
 const rootReducer = combineReducers({
     advantages: advantagesReducer,
