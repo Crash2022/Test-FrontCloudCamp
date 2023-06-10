@@ -22,6 +22,10 @@ export type FormPageStepOneType = {
     sex: string
 }
 
+export type FormPageStepThreeType = {
+    about: string
+}
+
 export type RequestPayloadType = {
     phone: string | null
     email: string | null
