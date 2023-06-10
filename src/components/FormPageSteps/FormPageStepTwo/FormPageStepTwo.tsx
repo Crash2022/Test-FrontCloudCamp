@@ -41,6 +41,10 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
             enqueueSnackbar(validationTitles.noAdvantage, {variant: 'error', autoHideDuration: 3000})
             return
         }
+        if (advantages.find((adv: AdvantageType) => adv.title.length === 0)) {
+            enqueueSnackbar(validationTitles.noAdvantageTitle, {variant: 'error', autoHideDuration: 3000})
+            return
+        }
 
         setStep('three')
         localStorage.setItem('step', 'three')
