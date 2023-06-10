@@ -13,10 +13,10 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import {noSpacesRexExp} from "../../../shared/const/validationRegExp"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
 
-export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
+export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isLoading}: FormPageStepsProps) => {
 
     const [openMessageModal, setOpenMessageModal] = useState<boolean>(false)
-    const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
+    // const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
 
     const FormPageStepThreeSchema = yup.object().shape({
         about: yup.string()

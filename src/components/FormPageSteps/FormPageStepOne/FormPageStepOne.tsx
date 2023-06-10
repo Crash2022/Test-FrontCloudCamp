@@ -76,6 +76,10 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
         if (LS_Sex) setValue('sex', LS_Sex)
     }, [setValue])
 
+    // useEffect(() => {
+    //     localStorage.setItem('step', 'one')
+    // }, [])
+
     return (
         <form className={s.formPage_form} onSubmit={handleSubmit(onSubmit)}>
             <ControlledInput divClassName={s.form_nickname}

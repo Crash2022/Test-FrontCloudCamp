@@ -5,26 +5,44 @@ import {FormPageStepTwo} from "../../components/FormPageSteps/FormPageStepTwo/Fo
 import {FormPageStepThree} from "../../components/FormPageSteps/FormPageStepThree/FormPageStepThree"
 import {StepsType} from "../../shared/types/all-types"
 import {StepLine} from "../../shared/ui/StepLine/StepLine"
+import {useSetFormDataMutation} from "../../services/FormPageService"
 
 export const FormPage = () => {
 
+    const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
     const [step, setStep] = useState<StepsType>('one')
+    const LS_Step = localStorage.getItem('step')
 
     useEffect(() => {
-        const LS_Step = localStorage.getItem('step')
+        localStorage.setItem('step', 'one')
+
+        // const LS_Step = localStorage.getItem('step')
         if (LS_Step) { // @ts-ignore
             setStep(LS_Step)
         }
     }, [])
 
+    // useEffect(() => {
+    //     localStorage.setItem('step', 'one')
+    // }, [])
+
     return (
         <div className={s.formPage_card}>
             <div className={s.formPage_steps}>
-                <StepLine/>
+                <StepLine isSuccess={isSuccess}/>
             </div>
             { step === 'one' ? <FormPageStepOne setStep={setStep}/> : '' }
             { step === 'two' ? <FormPageStepTwo setStep={setStep}/> : '' }
-            { step === 'three' ? <FormPageStepThree setStep={setStep}/> : '' }
+            {
+                step === 'three' ?
+                    <FormPageStepThree setStep={setStep}
+                                       setFormData={setFormData}
+                                       isError={isError}
+                                       isSuccess={isSuccess}
+                                       isLoading={isLoading}
+                    />
+                    : ''
+            }
         </div>
     )
 }

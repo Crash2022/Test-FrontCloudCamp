@@ -1,7 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import s from './StepLine.module.scss'
 
-export const StepLine = () => {
+type StepLineProps = {
+    isSuccess: any
+}
+
+export const StepLine = ({isSuccess}: StepLineProps) => {
 
     // &#10004; - галочка
     // &#9898; - круг
@@ -19,6 +23,10 @@ export const StepLine = () => {
     const className_active = `${s.stepper_item} ${s.active}`
     const className_completed = `${s.stepper_item} ${s.completed}`
 
+    // useEffect(() => {
+    //     localStorage.setItem('step', 'one')
+    // }, [])
+
     return (
         <>
             <div className={s.stepper_wrapper} id={'progress'}>
@@ -34,9 +42,10 @@ export const StepLine = () => {
                     </div>
                     <div className={s.step_name}>2</div>
                 </div>
-                <div className={`${s.stepper_item} ${s.active}`}>
+                <div className={isSuccess ? className_completed : className_active}>
                     <div className={s.step_counter}>
-                        { LS_Step3 ? symbol_round : '' }
+                        {/*{ LS_Step3 ? symbol_round : '' }*/}
+                        { isSuccess ? symbol_check : symbol_round }
                     </div>
                     <div className={s.step_name}>3</div>
                 </div>

@@ -6,6 +6,10 @@ export type ContactsType = {
 
 export type FormPageStepsProps = {
     setStep: (value: StepsType) => void
+    setFormData?: any
+    isError?: any
+    isSuccess?: any
+    isLoading?: any
 }
 
 export type StepsType = 'one' | 'two' | 'three'
