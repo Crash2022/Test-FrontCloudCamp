@@ -11,11 +11,14 @@ import {selectorAdvantages} from '../../../store/selectors'
 import {addAdvantage} from '../../../store/advantagesSlice'
 import {AdvantageItem} from '../../AdvantageItem/AdvantageItem'
 import {v1} from 'uuid'
+import {useSnackbar} from "notistack"
+import {validationTitles} from "../../../shared/const/validationTitles"
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
 export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
 
+    const { enqueueSnackbar } = useSnackbar()
     const dispatch = useAppDispatch()
     const advantages = useAppSelector(selectorAdvantages)
 
@@ -34,6 +37,11 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
     })
 
     const onSubmit: SubmitHandler<any> = (data: any) => {
+        if (advantages.length === 0) {
+            enqueueSnackbar(validationTitles.noAdvantage, {variant: 'error', autoHideDuration: 3000})
+            return
+        }
+
         setStep('three')
         localStorage.setItem('step', 'three')
     }
