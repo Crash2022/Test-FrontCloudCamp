@@ -13,6 +13,7 @@ import {AdvantageItem} from '../../AdvantageItem/AdvantageItem'
 import {v1} from 'uuid'
 import {useSnackbar} from "notistack"
 import {validationTitles} from "../../../shared/const/validationTitles"
+import {validationNumbers} from "../../../shared/const/validationNumbers"
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
@@ -41,7 +42,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
             enqueueSnackbar(validationTitles.noAdvantage, {variant: 'error', autoHideDuration: 3000})
             return
         }
-        if (advantages.find((adv: AdvantageType) => adv.title.length === 0)) {
+        if (advantages.find((adv: AdvantageType) => adv.title.length === 0 || adv.title.length > validationNumbers.advantage)) {
             enqueueSnackbar(validationTitles.noAdvantageTitle, {variant: 'error', autoHideDuration: 3000})
             return
         }

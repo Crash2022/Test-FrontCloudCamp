@@ -11,6 +11,7 @@ import * as yup from "yup"
 import {Controller, SubmitHandler, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {noSpacesRexExp} from "../../../shared/const/validationRegExp"
+import {validationNumbers} from "../../../shared/const/validationNumbers"
 
 export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
 
@@ -20,7 +21,7 @@ export const FormPageStepThree = ({setStep}: FormPageStepsProps) => {
     const FormPageStepThreeSchema = yup.object().shape({
         about: yup.string()
             .required(validationTitles.required)
-            .max(200, validationTitles.aboutMax)
+            .max(validationNumbers.about, validationTitles.aboutMax)
             .matches(noSpacesRexExp, {message: validationTitles.noSpaces, excludeEmptyString: false}),
     })
 

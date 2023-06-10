@@ -14,7 +14,7 @@ export const validationTitles = {
     nameMax: 'Максимальная длина 50 символов',
 
     noAdvantage: 'Добавьте и заполните хотя бы 1 поле',
-    noAdvantageTitle: 'Заполните поле',
+    noAdvantageTitle: 'Заполните поле. Длина не более 30 символов',
 
     aboutMax: 'Превышено количество символов',
 }

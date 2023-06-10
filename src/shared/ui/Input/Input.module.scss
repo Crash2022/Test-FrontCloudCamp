@@ -20,6 +20,7 @@
     //color: var(--default-gray-color-dark);
     color: black;
     opacity: 0.7;
+    overflow: hidden;
 }
 .customInput:focus-visible {
     border: 2px solid var(--default-gray-color-medium);

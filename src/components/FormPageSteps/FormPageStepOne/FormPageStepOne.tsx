@@ -11,6 +11,7 @@ import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {validationTitles} from "../../../shared/const/validationTitles"
 import {onlyLettersDigitsRegExp, onlyLettersRegExp} from '../../../shared/const/validationRegExp'
+import {validationNumbers} from "../../../shared/const/validationNumbers"
 
 export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
@@ -22,15 +23,15 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
     const FormPageStepOneSchema = yup.object().shape({
         nickname: yup.string()
             .required(validationTitles.required)
-            .max(30, validationTitles.nicknameMax)
+            .max(validationNumbers.nickname, validationTitles.nicknameMax)
             .matches(onlyLettersDigitsRegExp, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
         name: yup.string()
             .required(validationTitles.required)
-            .max(50, validationTitles.nameMax)
+            .max(validationNumbers.name, validationTitles.nameMax)
             .matches(onlyLettersRegExp, {message: validationTitles.onlyLetters, excludeEmptyString: false}),
         surname: yup.string()
             .required(validationTitles.required)
-            .max(50, validationTitles.nameMax)
+            .max(validationNumbers.surname, validationTitles.nameMax)
             .matches(onlyLettersRegExp, {message: validationTitles.onlyLetters, excludeEmptyString: false}),
         sex: yup.string()
             .required(validationTitles.required)
