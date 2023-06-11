@@ -23,10 +23,10 @@
 .stepper_item::before {
     position: absolute;
     content: "";
-    border-bottom: 2px solid #ccc;
+    border-bottom: 8px solid #ccc;
     width: 100%;
     //top: 20px;
-    top: 10px;
+    top: 6px;
     left: -50%;
     z-index: 2;
 }
@@ -34,10 +34,10 @@
 .stepper_item::after {
     position: absolute;
     content: "";
-    border-bottom: 2px solid #ccc;
+    border-bottom: 8px solid #ccc;
     width: 100%;
     //top: 20px;
-    top: 10px;
+    top: 6px;
     left: 50%;
     z-index: 2;
 }
@@ -71,10 +71,10 @@
     position: absolute;
     content: "";
     //border-bottom: 2px solid #4bb543;
-    border-bottom: 2px solid var(--line-border-fill);
+    border-bottom: 8px solid var(--line-border-fill);
     width: 100%;
     //top: 20px;
-    top: 10px;
+    top: 6px;
     left: 50%;
     z-index: 3;
 }
