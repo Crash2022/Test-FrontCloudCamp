@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import s from './StepLine.module.scss'
 
 type StepLineProps = {
@@ -23,10 +23,6 @@ export const StepLine = ({isSuccess}: StepLineProps) => {
     const className_active = `${s.stepper_item} ${s.active}`
     const className_completed = `${s.stepper_item} ${s.completed}`
 
-    // useEffect(() => {
-    //     localStorage.setItem('step', 'one')
-    // }, [])
-
     return (
         <>
             <div className={s.stepper_wrapper} id={'progress'}>
@@ -50,22 +46,6 @@ export const StepLine = ({isSuccess}: StepLineProps) => {
                     <div className={s.step_name}>3</div>
                 </div>
             </div>
-
-            {/*начальная версия*/}
-            {/*<div className={s.stepper_wrapper} id={'progress'}>*/}
-            {/*    <div className={`${s.stepper_item} ${s.active}`}>*/}
-            {/*        <div className={s.step_counter}>&#9898;</div>*/}
-            {/*        <div className={s.step_name}>1</div>*/}
-            {/*    </div>*/}
-            {/*    <div className={`${s.stepper_item} ${s.active}`}>*/}
-            {/*        <div className={s.step_counter}></div>*/}
-            {/*        <div className={s.step_name}>2</div>*/}
-            {/*    </div>*/}
-            {/*    <div className={`${s.stepper_item} ${s.active}`}>*/}
-            {/*        <div className={s.step_counter}></div>*/}
-            {/*        <div className={s.step_name}>3</div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
 
             {/*другой вариант*/}
             {/*<div className={s.progress_container} id={'progress2'}>*/}

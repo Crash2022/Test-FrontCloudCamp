@@ -17,8 +17,8 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
     const navigate = useNavigate()
 
-    const sexOptions: string[] = ['Мужской', 'Женский']
-    // const sexOptions: string[] = ['man', 'woman']
+    // const sexOptions: string[] = ['Мужской', 'Женский']
+    const sexOptions: string[] = ['man', 'woman']
 
     const FormPageStepOneSchema = yup.object().shape({
         nickname: yup.string()
