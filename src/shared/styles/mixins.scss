@@ -47,6 +47,11 @@
     border-radius: 12px;
     padding: 32px;
     color: black;
+    border: 1px solid var(--snippet-border);
+
+    @media(max-width: 590px) {
+        width: 300px;
+    }
 }
 
 /*----------------!* Other Mixins *!----------------*/

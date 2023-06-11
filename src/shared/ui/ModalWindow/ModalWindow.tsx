@@ -67,7 +67,7 @@ export const ModalWindow = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div className={clsx(cls.Modal, mods, [className])} {...restProps}>
+            <div className={clsx(cls.modal, mods, [className])} {...restProps}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div className={cls.content} onClick={onContentClick}>
                         {children}

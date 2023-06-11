@@ -111,7 +111,7 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
                     theme={'primary'}
                     type={'submit'}
                 >
-                    Далее
+                    Отправить
                 </Button>
             </div>
         </form>
