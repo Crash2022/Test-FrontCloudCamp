@@ -45,25 +45,6 @@ export const StepLine = ({isSuccess}: StepLineProps) => {
                     <div className={s.step_name}>3</div>
                 </div>
             </div>
-
-            {/*другой вариант*/}
-            {/*<div className={s.progress_container} id={'progress2'}>*/}
-            {/*    <div className={s.progress}></div>*/}
-            {/*    <div className={`${s.circle} ${s.active}`}>*/}
-            {/*        1*/}
-            {/*    </div>*/}
-            {/*    <div className={localStorage.getItem('step') === 'two' ||*/}
-            {/*    localStorage.getItem('step') === 'three' ?*/}
-            {/*        `${s.circle} ${s.active}` : s.circle}*/}
-            {/*    >*/}
-            {/*        2*/}
-            {/*    </div>*/}
-            {/*    <div className={localStorage.getItem('step') === 'three' ?*/}
-            {/*        `${s.circle} ${s.active}` : s.circle}*/}
-            {/*    >*/}
-            {/*        3*/}
-            {/*    </div>*/}
-            {/*</div>*/}
         </>
     )
 }
