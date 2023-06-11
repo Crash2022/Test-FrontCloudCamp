@@ -26,7 +26,13 @@ export const MessageModal = ({open, setOpen, isSuccess, isError}: MessageModalPr
         <ModalWindow
             open={open}
             onClose={() => {
-                setOpen(false)
+                if (isSuccess) {
+                    navigate(RoutePaths.MAIN)
+                    localStorage.clear()
+                    setOpen(false)
+                } else {
+                    setOpen(false)
+                }
             }}
         >
             <div className={s.messageModal_mainBox}>
