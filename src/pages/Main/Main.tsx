@@ -29,8 +29,8 @@ export const Main = () => {
 
     const MainSchema = yup.object().shape({
         phone: yup.string()
-            // .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
             .required(validationTitles.required)
+            .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
             .min(12, validationTitles.phoneMin)
             .max(12, validationTitles.phoneMax),
         email: yup.string().required(validationTitles.required).email(validationTitles.email),
