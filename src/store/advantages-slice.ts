@@ -6,7 +6,6 @@ type AdvantagesStateType = {
 }
 
 const initialState: AdvantagesStateType = {
-    // advantages: [{id: '1', title: 'Новый пункт'}]
     advantages: []
 }
 
@@ -27,7 +26,7 @@ export const advantagesSlice = createSlice<any, any>({
                 state.advantages.splice(index, 1)
             }
         },
-        clearAdvantages: (state: AdvantagesStateType, action: PayloadAction<{}>) => {
+        clearAdvantages: (state: AdvantagesStateType) => {
             state.advantages = []
         },
     }
