@@ -5,7 +5,6 @@ import {FormPageStepsProps, FormPageStepThreeType} from '../../../shared/types/a
 import {Textarea} from '../../../shared/ui/Textarea/Textarea'
 import {validationTitles} from '../../../shared/const/validationTitles'
 import {MessageModal} from '../../MessageModal/MessageModal'
-// import {useSetFormDataMutation} from "../../../services/FormPageService"
 import {LoaderScreen} from "../../../shared/ui/Loader/LoaderScreen"
 import * as yup from "yup"
 import {Controller, SubmitHandler, useForm} from "react-hook-form"
@@ -14,6 +13,8 @@ import {noSpacesRexExp} from "../../../shared/const/validationRegExp"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
 import {RoutePaths} from "../../../shared/api/paths"
 import {useNavigate} from "react-router-dom"
+import {LS_Step3} from "../../../shared/const/localStorage"
+// import {useSetFormDataMutation} from "../../../services/FormPageService"
 
 export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isLoading}: FormPageStepsProps) => {
 
@@ -68,7 +69,7 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
     }, [])
 
     useEffect(() => {
-        if (!localStorage.getItem('step')) navigate(RoutePaths.MAIN)
+        if (!LS_Step3) navigate(RoutePaths.MAIN)
     }, [])
 
     if (isLoading) return <LoaderScreen variant={'circle'} />

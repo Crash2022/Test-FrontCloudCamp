@@ -11,15 +11,6 @@ export const FormPage = () => {
 
     const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
     const [step, setStep] = useState<StepsType>('one')
-    const LS_Step = localStorage.getItem('step')
-
-    useEffect(() => {
-        localStorage.setItem('step', 'one')
-
-        if (LS_Step) { // @ts-ignore
-            setStep(LS_Step)
-        }
-    }, [])
 
     return (
         <div className={s.formPage_card}>

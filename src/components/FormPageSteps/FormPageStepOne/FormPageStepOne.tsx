@@ -12,6 +12,7 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import {validationTitles} from "../../../shared/const/validationTitles"
 import {onlyLettersDigitsRegExp, onlyLettersRegExp} from '../../../shared/const/validationRegExp'
 import {validationNumbers} from "../../../shared/const/validationNumbers"
+import {LS_Step1} from "../../../shared/const/localStorage"
 
 export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
@@ -77,7 +78,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
     }, [setValue])
 
     useEffect(() => {
-        if (!localStorage.getItem('step')) navigate(RoutePaths.MAIN)
+        if (!LS_Step1) navigate(RoutePaths.MAIN)
     }, [])
 
     return (

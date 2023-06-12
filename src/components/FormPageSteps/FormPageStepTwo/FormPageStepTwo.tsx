@@ -16,6 +16,7 @@ import {validationTitles} from "../../../shared/const/validationTitles"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
 import {RoutePaths} from "../../../shared/api/paths"
 import {useNavigate} from "react-router-dom"
+import {LS_Step2} from "../../../shared/const/localStorage"
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
@@ -55,7 +56,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
     }
 
     useEffect(() => {
-        if (!localStorage.getItem('step')) navigate(RoutePaths.MAIN)
+        if (!LS_Step2) navigate(RoutePaths.MAIN)
     }, [])
 
     return (

@@ -1,5 +1,6 @@
 import React from 'react'
 import s from './StepLine.module.scss'
+import {LS_Step1, LS_Step2, LS_Step3} from "../../const/localStorage"
 
 type StepLineProps = {
     isSuccess: any
@@ -10,16 +11,9 @@ export const StepLine = ({isSuccess}: StepLineProps) => {
     // &#10004; - галочка
     // &#9898; - круг
 
-    // локал сторадж
-    const LS_Step1 = localStorage.getItem('step') === 'one'
-    const LS_Step2 = localStorage.getItem('step') === 'two'
-    const LS_Step3 = localStorage.getItem('step') === 'three'
-
-    // символы
     const symbol_round = String.fromCharCode(9898)
     const symbol_check = String.fromCharCode(10004)
 
-    // классы стилей
     const className_active = `${s.stepper_item} ${s.active}`
     const className_completed = `${s.stepper_item} ${s.completed}`
 
@@ -32,7 +26,6 @@ export const StepLine = ({isSuccess}: StepLineProps) => {
                     </div>
                     <div className={s.step_name}>1</div>
                 </div>
-                {/*<div className={LS_Step2 ? className_active : className_completed}>*/}
                 <div className={LS_Step2 || LS_Step1 ? className_active : className_completed}>
                     <div className={s.step_counter}>
                         { LS_Step2 ? symbol_round : LS_Step3 ? symbol_check : '' }

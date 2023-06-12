@@ -13,7 +13,6 @@ import {ContactItem} from "../../components/ContactItem/ContactItem"
 import {ContactsType, MainPageFormType} from '../../shared/types/all-types'
 import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput"
 
-
 export const Main = () => {
 
     const navigate = useNavigate()
@@ -52,6 +51,7 @@ export const Main = () => {
     const onSubmit: SubmitHandler<MainPageFormType> = (data: MainPageFormType) => {
         localStorage.setItem('phone', control._getWatch('phone'))
         localStorage.setItem('email', control._getWatch('email'))
+        localStorage.setItem('step', 'one')
         navigate(RoutePaths.FORM)
     }
 
@@ -64,51 +64,47 @@ export const Main = () => {
     }, [])
 
     return (
-        // <div className={s.mainPage_mainBox}>
-        //     <div className={s.container}>
-                <div className={s.main_loginCard}>
-                    <div className={s.userInfo_header}>
-                        <Avatar lastName={lastName} firstName={firstName}/>
-                        <div className={s.header_info}>
-                            <div className={s.header_infoName}>
-                                {lastName} {firstName}
-                            </div>
-                            <div className={s.header_infoContacts}>
-                                {
-                                    contacts.map(c => {
-                                        return (
-                                            <ContactItem key={c.id} contact={c}/>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
+        <div className={s.main_loginCard}>
+            <div className={s.userInfo_header}>
+                <Avatar lastName={lastName} firstName={firstName}/>
+                <div className={s.header_info}>
+                    <div className={s.header_infoName}>
+                        {lastName} {firstName}
                     </div>
-                    <form className={s.main_form} onSubmit={handleSubmit(onSubmit)}>
-                        <ControlledInput divClassName={s.form_phone}
-                                         id={'main-form-phone'}
-                                         name={'phone'}
-                                         placeholderTitle={'Номер телефона'}
-                                         control={control}
-                                         error={errors.phone?.message}
-                        />
-                        <ControlledInput divClassName={s.form_email}
-                                         id={'main-form-email'}
-                                         name={'email'}
-                                         placeholderTitle={'Электронная почта'}
-                                         control={control}
-                                         error={errors.email?.message}
-                        />
-                        <Button
-                            id={'button-start'}
-                            theme={'primary'}
-                            type={'submit'}
-                        >
-                            Начать
-                        </Button>
-                    </form>
+                    <div className={s.header_infoContacts}>
+                        {
+                            contacts.map(c => {
+                                return (
+                                    <ContactItem key={c.id} contact={c}/>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
-        //     </div>
-        // </div>
+            </div>
+            <form className={s.main_form} onSubmit={handleSubmit(onSubmit)}>
+                <ControlledInput divClassName={s.form_phone}
+                                 id={'main-form-phone'}
+                                 name={'phone'}
+                                 placeholderTitle={'Номер телефона'}
+                                 control={control}
+                                 error={errors.phone?.message}
+                />
+                <ControlledInput divClassName={s.form_email}
+                                 id={'main-form-email'}
+                                 name={'email'}
+                                 placeholderTitle={'Электронная почта'}
+                                 control={control}
+                                 error={errors.email?.message}
+                />
+                <Button
+                    id={'button-start'}
+                    theme={'primary'}
+                    type={'submit'}
+                >
+                    Начать
+                </Button>
+            </form>
+        </div>
     )
 }
