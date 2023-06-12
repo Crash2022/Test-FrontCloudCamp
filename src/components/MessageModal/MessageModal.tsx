@@ -29,7 +29,6 @@ export const MessageModal = ({open, setOpen, isSuccess, isError}: MessageModalPr
                 if (isSuccess) {
                     navigate(RoutePaths.MAIN)
                     localStorage.clear()
-                    // @ts-ignore
                     dispatch(clearAdvantages())
                     setOpen(false)
                 } else {
@@ -55,7 +54,6 @@ export const MessageModal = ({open, setOpen, isSuccess, isError}: MessageModalPr
                             onClick={() => {
                                 navigate(RoutePaths.MAIN)
                                 localStorage.clear()
-                                // @ts-ignore
                                 dispatch(clearAdvantages())
                             }}
                         >

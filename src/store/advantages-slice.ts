@@ -9,7 +9,7 @@ const initialState: AdvantagesStateType = {
     advantages: []
 }
 
-export const advantagesSlice = createSlice<any, any>({
+export const advantagesSlice = createSlice({
     name: 'advantages',
     initialState,
     reducers: {

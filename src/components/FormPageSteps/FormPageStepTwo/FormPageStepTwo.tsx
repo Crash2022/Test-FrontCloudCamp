@@ -69,7 +69,6 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                         id={'button-add'}
                         theme={'outline'}
                         onClick={() => {
-                            // @ts-ignore
                             dispatch(addAdvantage({id: v1(), title: ''}))
                         }}
                     >
