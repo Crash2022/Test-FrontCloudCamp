@@ -1,22 +1,19 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
 import {SubmitHandler, useForm} from 'react-hook-form'
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import {validationTitles} from '../../shared/const/validationTitles'
-import {phoneRegExp} from "../../shared/const/validationRegExp"
 import {Button} from '../../shared/ui/Button/Button'
 import {useNavigate} from 'react-router-dom'
 import {RoutePaths} from "../../shared/api/paths"
 import {ContactItem} from "../../components/ContactItem/ContactItem"
 import {ContactsType, MainPageFormType} from '../../shared/types/all-types'
 import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput"
-import {phoneMask} from "../../shared/utils/phoneMask"
+import {ControlledIMaskInput} from "../../shared/ui/Controlled/ControlledIMaskInput"
 
 export const Main = () => {
-
-    // phoneMask()
 
     const navigate = useNavigate()
 
@@ -30,11 +27,7 @@ export const Main = () => {
     ]
 
     const MainSchema = yup.object().shape({
-        phone: yup.string()
-            .required(validationTitles.required),
-            // .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
-            // .min(12, validationTitles.phoneMin)
-            // .max(12, validationTitles.phoneMax),
+        phone: yup.string().required(validationTitles.required),
         email: yup.string()
             .required(validationTitles.required)
             .email(validationTitles.email),
@@ -47,14 +40,13 @@ export const Main = () => {
         formState: {errors}
     } = useForm<MainPageFormType>({
         defaultValues: {
-            // phone: '+7',
             phone: '',
             email: ''
         },
         resolver: yupResolver(MainSchema)
     })
 
-    const onSubmit: SubmitHandler<MainPageFormType> = (data: MainPageFormType) => {
+    const onSubmit: SubmitHandler<MainPageFormType> = () => {
         localStorage.setItem('phone', control._getWatch('phone'))
         localStorage.setItem('email', control._getWatch('email'))
         localStorage.setItem('step', 'one')
@@ -89,16 +81,23 @@ export const Main = () => {
                 </div>
             </div>
             <form className={s.main_form} onSubmit={handleSubmit(onSubmit)}>
-                <ControlledInput divClassName={s.form_phone}
-                                 id={'main-form-phone'}
-                                 name={'phone'}
-                                 placeholderTitle={'Номер телефона'}
-                                 control={control}
-                                 error={errors.phone?.message}
+                <ControlledIMaskInput control={control}
+                                      error={errors.phone?.message}
+                                      placeholderTitle={'Номер телефона'}
                 />
+
+                {/*<ControlledInput divClassName={s.form_phone}*/}
+                {/*                 id={'main-form-phone'}*/}
+                {/*                 name={'phone'}*/}
+                {/*                 placeholder={'+7 (___) ___-__-__'}*/}
+                {/*                 placeholderTitle={'Номер телефона'}*/}
+                {/*                 control={control}*/}
+                {/*                 error={errors.phone?.message}*/}
+                {/*/>*/}
                 <ControlledInput divClassName={s.form_email}
                                  id={'main-form-email'}
                                  name={'email'}
+                                 placeholder={'my-email@gmail.com'}
                                  placeholderTitle={'Электронная почта'}
                                  control={control}
                                  error={errors.email?.message}
