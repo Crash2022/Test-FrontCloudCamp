@@ -12,7 +12,6 @@ import {yupResolver} from "@hookform/resolvers/yup"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
 import {RoutePaths} from "../../../shared/api/paths"
 import {useNavigate} from "react-router-dom"
-// import {useSetFormDataMutation} from "../../../services/FormPageService"
 
 export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isLoading}: FormPageStepsProps) => {
 
@@ -21,7 +20,6 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
     const LS_Step3 = localStorage.getItem('step') === 'three'
 
     const [openMessageModal, setOpenMessageModal] = useState<boolean>(false)
-    // const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
 
     const FormPageStepThreeSchema = yup.object().shape({
         about: yup.string()

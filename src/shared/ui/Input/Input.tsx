@@ -22,7 +22,7 @@ export const Input: React.FC<InputTextPropsType> = React.forwardRef((
         onKeyPress,
         onEnter,
         error,
-        helperText, // error для Controlled InputUI (React Hook Forms)
+        helperText,
         divClassName,
         spanClassName,
         className,

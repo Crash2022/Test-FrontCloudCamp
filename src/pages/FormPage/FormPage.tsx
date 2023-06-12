@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import s from './FormPage.module.scss'
 import {FormPageStepOne} from "../../components/FormPageSteps/FormPageStepOne/FormPageStepOne"
 import {FormPageStepTwo} from "../../components/FormPageSteps/FormPageStepTwo/FormPageStepTwo"

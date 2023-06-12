@@ -87,15 +87,6 @@ export const Main = () => {
                                       error={errors.phone?.message}
                                       placeholderTitle={'Номер телефона'}
                 />
-
-                {/*<ControlledInput divClassName={s.form_phone}*/}
-                {/*                 id={'main-form-phone'}*/}
-                {/*                 name={'phone'}*/}
-                {/*                 placeholder={'+7(___) ___-__-__'}*/}
-                {/*                 placeholderTitle={'Номер телефона'}*/}
-                {/*                 control={control}*/}
-                {/*                 error={errors.phone?.message}*/}
-                {/*/>*/}
                 <ControlledInput divClassName={s.form_email}
                                  id={'main-form-email'}
                                  name={'email'}

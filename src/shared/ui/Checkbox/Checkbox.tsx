@@ -28,8 +28,6 @@ export const Checkbox: React.FC<CheckboxPropsType> = ({
         onChangeChecked && onChangeChecked(e.currentTarget.checked)
     }
 
-    // const finalInputClassName = `${s.checkbox} ${className ? className : ''}`
-
     return (
         <label className={s.container}>
             {children}
@@ -37,11 +35,9 @@ export const Checkbox: React.FC<CheckboxPropsType> = ({
                 id={id}
                 type={'checkbox'}
                 onChange={onChangeCallback}
-                // className={finalInputClassName}
                 {...restProps}
             />
-            {/*{children && <span className={s.checkmark}>{children}</span>}*/}
             <span className={s.checkmark}></span>
-        </label> // благодаря label нажатие на спан передастся в инпут
+        </label>
     )
 }
