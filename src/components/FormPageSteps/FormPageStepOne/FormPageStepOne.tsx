@@ -54,6 +54,10 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
     })
 
     const onSubmit: SubmitHandler<FormPageStepOneType> = (data: FormPageStepOneType) => {
+        setValue('nickname', control._getWatch('nickname').trim())
+        setValue('name', control._getWatch('name').trim())
+        setValue('surname', control._getWatch('surname').trim())
+
         localStorage.setItem('nickname', control._getWatch('nickname'))
         localStorage.setItem('name', control._getWatch('name'))
         localStorage.setItem('surname', control._getWatch('surname'))
