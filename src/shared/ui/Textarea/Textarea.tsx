@@ -19,7 +19,6 @@ type CustomTextareaPropsType = DefaultInputPropsType & {
 }
 
 export const Textarea: React.FC<CustomTextareaPropsType> = ({
-    // onChange,
     onChangeText,
     onKeyPress,
     onEnter,

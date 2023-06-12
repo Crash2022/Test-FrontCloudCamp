@@ -88,6 +88,7 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
                     render={({field}: any) => (
                         <Textarea
                             {...field}
+                            ref={null}
                             id={'field-about'}
                             placeholder={'Введите текст'}
                             placeholderTitle={'Обо мне'}
