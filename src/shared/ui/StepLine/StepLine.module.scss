@@ -29,7 +29,6 @@
     content: "";
     border-bottom: 8px solid var(--line-border-active);
     width: 100%;
-    //top: 20px;
     top: 6px;
     left: -50%;
     z-index: 2;
@@ -40,7 +39,6 @@
     content: "";
     border-bottom: 8px solid var(--line-border-active);
     width: 100%;
-    //top: 20px;
     top: 6px;
     left: 50%;
     z-index: 2;
@@ -52,12 +50,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    //width: 40px;
-    //height: 40px;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background-color: var(--line-border-active);
+    //background-color: var(--line-border-completed);
     margin-bottom: 6px;
     color: white; // цвет галочки
 }
@@ -67,17 +64,14 @@
 }
 
 .stepper_item.completed .step_counter {
-    //background-color: #4bb543;
     background-color: var(--line-border-completed);
 }
 
 .stepper_item.completed::after {
     position: absolute;
     content: "";
-    //border-bottom: 2px solid #4bb543;
     border-bottom: 8px solid var(--line-border-completed);
     width: 100%;
-    //top: 20px;
     top: 6px;
     left: 50%;
     z-index: 3;
