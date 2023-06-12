@@ -12,8 +12,12 @@ import {Controller, SubmitHandler, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
 import {noSpacesRexExp} from "../../../shared/const/validationRegExp"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
+import {RoutePaths} from "../../../shared/api/paths"
+import {useNavigate} from "react-router-dom"
 
 export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isLoading}: FormPageStepsProps) => {
+
+    const navigate = useNavigate()
 
     const [openMessageModal, setOpenMessageModal] = useState<boolean>(false)
     // const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
@@ -61,6 +65,10 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
     useEffect(() => {
         const LS_About = localStorage.getItem('about')
         if (LS_About) setValue('about', LS_About)
+    }, [])
+
+    useEffect(() => {
+        if (!localStorage.getItem('step')) navigate(RoutePaths.MAIN)
     }, [])
 
     if (isLoading) return <LoaderScreen variant={'circle'} />

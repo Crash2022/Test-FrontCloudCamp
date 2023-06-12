@@ -16,15 +16,10 @@ export const FormPage = () => {
     useEffect(() => {
         localStorage.setItem('step', 'one')
 
-        // const LS_Step = localStorage.getItem('step')
         if (LS_Step) { // @ts-ignore
             setStep(LS_Step)
         }
     }, [])
-
-    // useEffect(() => {
-    //     localStorage.setItem('step', 'one')
-    // }, [])
 
     return (
         <div className={s.formPage_card}>

@@ -32,15 +32,14 @@ export const StepLine = ({isSuccess}: StepLineProps) => {
                     </div>
                     <div className={s.step_name}>1</div>
                 </div>
-                <div className={LS_Step2 ? className_active : className_completed}>
-                {/*<div className={LS_Step2 || LS_Step1 ? className_active : className_completed}>*/}
+                {/*<div className={LS_Step2 ? className_active : className_completed}>*/}
+                <div className={LS_Step2 || LS_Step1 ? className_active : className_completed}>
                     <div className={s.step_counter}>
                         { LS_Step2 ? symbol_round : LS_Step3 ? symbol_check : '' }
                     </div>
                     <div className={s.step_name}>2</div>
                 </div>
                 <div className={isSuccess ? className_completed : className_active}>
-                {/*<div className={className_active}>*/}
                     <div className={s.step_counter}>
                         { isSuccess ? symbol_check : LS_Step3 ? symbol_round : '' }
                     </div>

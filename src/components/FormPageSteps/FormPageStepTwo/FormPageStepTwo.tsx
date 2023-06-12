@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {SubmitHandler, useForm} from 'react-hook-form'
 import s from './FormPageStepTwo.module.scss'
 import {Button} from '../../../shared/ui/Button/Button'
@@ -14,12 +14,15 @@ import {v1} from 'uuid'
 import {useSnackbar} from "notistack"
 import {validationTitles} from "../../../shared/const/validationTitles"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
+import {RoutePaths} from "../../../shared/api/paths"
+import {useNavigate} from "react-router-dom"
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
 export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
 
     const { enqueueSnackbar } = useSnackbar()
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const advantages = useAppSelector(selectorAdvantages)
 
@@ -50,6 +53,10 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
         setStep('three')
         localStorage.setItem('step', 'three')
     }
+
+    useEffect(() => {
+        if (!localStorage.getItem('step')) navigate(RoutePaths.MAIN)
+    }, [])
 
     return (
         <div className={s.formPageStepTwo}>
