@@ -12,8 +12,11 @@ import {RoutePaths} from "../../shared/api/paths"
 import {ContactItem} from "../../components/ContactItem/ContactItem"
 import {ContactsType, MainPageFormType} from '../../shared/types/all-types'
 import {ControlledInput} from "../../shared/ui/Controlled/ControlledInput"
+import {phoneMask} from "../../shared/utils/phoneMask"
 
 export const Main = () => {
+
+    // phoneMask()
 
     const navigate = useNavigate()
 
@@ -28,11 +31,13 @@ export const Main = () => {
 
     const MainSchema = yup.object().shape({
         phone: yup.string()
+            .required(validationTitles.required),
+            // .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
+            // .min(12, validationTitles.phoneMin)
+            // .max(12, validationTitles.phoneMax),
+        email: yup.string()
             .required(validationTitles.required)
-            .matches(phoneRegExp, {message: validationTitles.phone, excludeEmptyString: false})
-            .min(12, validationTitles.phoneMin)
-            .max(12, validationTitles.phoneMax),
-        email: yup.string().required(validationTitles.required).email(validationTitles.email),
+            .email(validationTitles.email),
     })
 
     const {
@@ -42,7 +47,8 @@ export const Main = () => {
         formState: {errors}
     } = useForm<MainPageFormType>({
         defaultValues: {
-            phone: '+7',
+            // phone: '+7',
+            phone: '',
             email: ''
         },
         resolver: yupResolver(MainSchema)

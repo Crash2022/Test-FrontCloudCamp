@@ -12,7 +12,6 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import {validationTitles} from "../../../shared/const/validationTitles"
 import {onlyLettersDigitsRegExp, onlyLettersRegExp} from '../../../shared/const/validationRegExp'
 import {validationNumbers} from "../../../shared/const/validationNumbers"
-// import {LS_Step1} from "../../../shared/const/localStorage"
 
 export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
@@ -20,8 +19,7 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
     const LS_Step1 = localStorage.getItem('step') === 'one'
 
-    // const sexOptions: string[] = ['Мужской', 'Женский']
-    const sexOptions: string[] = ['man', 'woman']
+    const sexOptions: string[] = ['Мужской', 'Женский']
 
     const FormPageStepOneSchema = yup.object().shape({
         nickname: yup.string()
@@ -31,11 +29,11 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
         name: yup.string()
             .required(validationTitles.required)
             .max(validationNumbers.name, validationTitles.nameMax)
-            .matches(onlyLettersRegExp, {message: validationTitles.onlyLetters, excludeEmptyString: false}),
+            .matches(onlyLettersRegExp, {message: validationTitles.nameOnlyLetters, excludeEmptyString: false}),
         surname: yup.string()
             .required(validationTitles.required)
             .max(validationNumbers.surname, validationTitles.nameMax)
-            .matches(onlyLettersRegExp, {message: validationTitles.onlyLetters, excludeEmptyString: false}),
+            .matches(onlyLettersRegExp, {message: validationTitles.nameOnlyLetters, excludeEmptyString: false}),
         sex: yup.string()
             .required(validationTitles.required)
     })
@@ -56,6 +54,9 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
     })
 
     const onSubmit: SubmitHandler<FormPageStepOneType> = (data: FormPageStepOneType) => {
+        // setValue('name', control._getWatch('name').trim())
+        // setValue('surname', control._getWatch('surname').trim())
+
         localStorage.setItem('nickname', control._getWatch('nickname'))
         localStorage.setItem('name', control._getWatch('name'))
         localStorage.setItem('surname', control._getWatch('surname'))

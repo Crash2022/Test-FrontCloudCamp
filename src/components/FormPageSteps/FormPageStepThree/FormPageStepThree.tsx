@@ -9,7 +9,6 @@ import {LoaderScreen} from "../../../shared/ui/Loader/LoaderScreen"
 import * as yup from "yup"
 import {Controller, SubmitHandler, useForm} from "react-hook-form"
 import {yupResolver} from "@hookform/resolvers/yup"
-import {noSpacesRexExp} from "../../../shared/const/validationRegExp"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
 import {RoutePaths} from "../../../shared/api/paths"
 import {useNavigate} from "react-router-dom"
@@ -28,7 +27,6 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
         about: yup.string()
             .required(validationTitles.required)
             .max(validationNumbers.about, validationTitles.aboutMax)
-            .matches(noSpacesRexExp, {message: validationTitles.noSpaces, excludeEmptyString: false}),
     })
 
     const {
@@ -44,6 +42,7 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
     })
 
     const onSubmit: SubmitHandler<FormPageStepThreeType> = async (data: FormPageStepThreeType) => {
+        setValue('about', control._getWatch('about').trim())
         localStorage.setItem('about', control._getWatch('about'))
 
         try {

@@ -16,11 +16,8 @@ export const EditableSpan: React.FC<EditableSpanPropsType> = React.memo(({
                                                                              spanClassName
                                                                          }) => {
 
-    // const MESSAGE_INPUT_VALUE_LENGTH = 'Text length must be 1-100 symbols';
-
     const [editMode, setEditMode] = useState<boolean>(false)
     const [inputTitle, setInputTitle] = useState<string>('')
-    // const [error, setError] = useState<string | null>(null)
 
     const onClickEditSpanHandler = () => {
         setEditMode(true)
@@ -28,13 +25,8 @@ export const EditableSpan: React.FC<EditableSpanPropsType> = React.memo(({
     }
 
     const onClickNotEditSpanHandler = () => {
-        if (inputTitle.length > 0 && inputTitle.length < 50) {
-            onChangeInput(inputTitle)
-            setEditMode(false)
-        } else {
-            // setError(`${MESSAGE_INPUT_VALUE_LENGTH}`)
-            // setLabel(`${MESSAGE_INPUT_VALUE_LENGTH}`)
-        }
+        onChangeInput(inputTitle)
+        setEditMode(false)
     }
 
     const onChangeInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -45,19 +37,11 @@ export const EditableSpan: React.FC<EditableSpanPropsType> = React.memo(({
         return event.key === 'Enter' ? onClickNotEditSpanHandler() : ''
     }
 
-    // useEffect(() => {
-        // if (inputTitle.length < 1 && inputTitle.length > 50) {
-        // setError(`${MESSAGE_INPUT_VALUE_LENGTH}`)
-        // setLabel(`${MESSAGE_INPUT_VALUE_LENGTH}`)
-        // }
-    // }, [])
-
     return (
         editMode
             ?
             <div className={inputDivClassName ? inputDivClassName : ''} style={{height: '44px'}}>
                 <Input
-                    // id={id}
                     placeholder={'Введите текст'}
                     value={inputTitle}
                     onChange={onChangeInputHandler}
