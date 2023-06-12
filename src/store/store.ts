@@ -5,6 +5,7 @@ import {persistStore, persistReducer,
     FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
+
 const rootReducer = combineReducers({
     advantages: advantagesReducer,
     [formPageAPI.reducerPath]: formPageAPI.reducer
@@ -32,7 +33,8 @@ export const setupStore = () => {
 export type AppRootStateType = ReturnType<typeof rootReducer>
 export type AppStoreType = ReturnType<typeof setupStore>
 export type AppDispatchType = AppStoreType['dispatch']
-// export type AppDispatchType = typeof setupStore.dispatch
+
+// export type AppDispatchType = typeof store.dispatch
 // export type AppThunkType<ReturnType = void> = ThunkAction<ReturnType, AppRootStateType, unknown, any>
 
 export const store = setupStore()
