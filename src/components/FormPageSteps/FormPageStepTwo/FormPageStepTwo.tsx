@@ -16,7 +16,6 @@ import {validationTitles} from "../../../shared/const/validationTitles"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
 import {RoutePaths} from "../../../shared/api/paths"
 import {useNavigate} from "react-router-dom"
-import {LS_Step2} from "../../../shared/const/localStorage"
 
 type RadioOptionsTypes = '1' | '2' | '3'
 
@@ -26,6 +25,8 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const advantages = useAppSelector(selectorAdvantages)
+
+    const LS_Step2 = localStorage.getItem('step') === 'two'
 
     const radioButtonOptions = ['1', '2', '3']
     const [radioOption, setRadioOption] = useState<RadioOptionsTypes>('1')

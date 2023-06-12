@@ -12,11 +12,13 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import {validationTitles} from "../../../shared/const/validationTitles"
 import {onlyLettersDigitsRegExp, onlyLettersRegExp} from '../../../shared/const/validationRegExp'
 import {validationNumbers} from "../../../shared/const/validationNumbers"
-import {LS_Step1} from "../../../shared/const/localStorage"
+// import {LS_Step1} from "../../../shared/const/localStorage"
 
 export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
 
     const navigate = useNavigate()
+
+    const LS_Step1 = localStorage.getItem('step') === 'one'
 
     // const sexOptions: string[] = ['Мужской', 'Женский']
     const sexOptions: string[] = ['man', 'woman']

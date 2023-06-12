@@ -13,12 +13,13 @@ import {noSpacesRexExp} from "../../../shared/const/validationRegExp"
 import {validationNumbers} from "../../../shared/const/validationNumbers"
 import {RoutePaths} from "../../../shared/api/paths"
 import {useNavigate} from "react-router-dom"
-import {LS_Step3} from "../../../shared/const/localStorage"
 // import {useSetFormDataMutation} from "../../../services/FormPageService"
 
 export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isLoading}: FormPageStepsProps) => {
 
     const navigate = useNavigate()
+
+    const LS_Step3 = localStorage.getItem('step') === 'three'
 
     const [openMessageModal, setOpenMessageModal] = useState<boolean>(false)
     // const [setFormData, { isError, isSuccess, isLoading }] = useSetFormDataMutation()
