@@ -8,7 +8,11 @@
 
 .step_name {
     @include h5-text-size;
-    color: var(--line-border-fill);
+    color: var(--round-color-empty);
+}
+.step_name_active {
+    @include h5-text-size;
+    color: var(--line-border-completed);
 }
 
 .stepper_item {
@@ -22,7 +26,7 @@
 .stepper_item::before {
     position: absolute;
     content: "";
-    border-bottom: 8px solid #ccc;
+    border-bottom: 8px solid var(--line-border-active);
     width: 100%;
     //top: 20px;
     top: 6px;
@@ -33,7 +37,7 @@
 .stepper_item::after {
     position: absolute;
     content: "";
-    border-bottom: 8px solid #ccc;
+    border-bottom: 8px solid var(--line-border-active);
     width: 100%;
     //top: 20px;
     top: 6px;
@@ -52,7 +56,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: var(--line-border-active);
     margin-bottom: 6px;
     color: white; // цвет галочки
 }
@@ -63,14 +67,14 @@
 
 .stepper_item.completed .step_counter {
     //background-color: #4bb543;
-    background-color: var(--line-border-fill);
+    background-color: var(--line-border-completed);
 }
 
 .stepper_item.completed::after {
     position: absolute;
     content: "";
     //border-bottom: 2px solid #4bb543;
-    border-bottom: 8px solid var(--line-border-fill);
+    border-bottom: 8px solid var(--line-border-completed);
     width: 100%;
     //top: 20px;
     top: 6px;

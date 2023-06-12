@@ -46,8 +46,9 @@ input:-webkit-autofill:focus {
     /*----------------!* colors *!----------------*/
 
     /*step-line*/
-    --line-border-fill: #5558FA;
-    --line-border-empty: #a1a1a1;
+    --line-border-completed: #5558FA;
+    --line-border-active: #ccc;
+    --round-color-empty: #a1a1a1;
 
     /*primary*/
     --primary-100: #73a5ff;
