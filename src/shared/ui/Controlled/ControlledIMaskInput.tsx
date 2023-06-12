@@ -12,7 +12,6 @@ type ControlledIMaskInputProps = {
 
 export const ControlledIMaskInput = ({control, error, placeholderTitle, spanClassName}: ControlledIMaskInputProps) => {
 
-    const ref = useRef(null)
     const inputRef = useRef(null)
 
     const finalSpanClassName = `${error ? s.error : ''} ${spanClassName ? spanClassName : ''}`
@@ -33,7 +32,7 @@ export const ControlledIMaskInput = ({control, error, placeholderTitle, spanClas
 
                         <IMaskInput
                             {...field}
-                            ref={ref}
+                            ref={null}
                             inputRef={inputRef}
                             id={'main-form-phone'}
                             placeholder={'+7 (___) ___-__-__'}
@@ -41,10 +40,6 @@ export const ControlledIMaskInput = ({control, error, placeholderTitle, spanClas
                             onAccept={(value) => {
                                 field.onChange(value)
                             }}
-                            // onChange={(value) => {
-                            //     field.onChange(value)
-                            //     // console.log(value)
-                            // }}
                             mask={'+{7}(000)000-00-00'}
                             // unmask={true} // true|false|'typed'
                             error={error}

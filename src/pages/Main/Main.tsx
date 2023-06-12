@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect} from 'react'
 import s from './Main.module.scss'
 import {Avatar} from '../../shared/ui/Avatar/Avatar'
 import {SubmitHandler, useForm} from 'react-hook-form'
@@ -97,7 +97,7 @@ export const Main = () => {
                 <ControlledInput divClassName={s.form_email}
                                  id={'main-form-email'}
                                  name={'email'}
-                                 placeholder={'my-email@gmail.com'}
+                                 placeholder={'example@gmail.com'}
                                  placeholderTitle={'Электронная почта'}
                                  control={control}
                                  error={errors.email?.message}
