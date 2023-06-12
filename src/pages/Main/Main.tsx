@@ -23,7 +23,7 @@ export const Main = () => {
     const contacts: ContactsType[] = [
         {id: 1, title: 'Telegram', link: 'https://t.me/MyNameCrash'},
         {id: 2, title: 'GitHub', link: 'https://github.com/Crash2022'},
-        {id: 3, title: 'Resume', link: 'https://my-portfolio-app-beryl.vercel.app/'},
+        {id: 3, title: 'Resume', link: 'Chashin_Alexander_Evgenievich_CV.pdf'}
     ]
 
     const MainSchema = yup.object().shape({
