@@ -89,7 +89,7 @@ export const Main = () => {
                 {/*<ControlledInput divClassName={s.form_phone}*/}
                 {/*                 id={'main-form-phone'}*/}
                 {/*                 name={'phone'}*/}
-                {/*                 placeholder={'+7 (___) ___-__-__'}*/}
+                {/*                 placeholder={'+7(___) ___-__-__'}*/}
                 {/*                 placeholderTitle={'Номер телефона'}*/}
                 {/*                 control={control}*/}
                 {/*                 error={errors.phone?.message}*/}

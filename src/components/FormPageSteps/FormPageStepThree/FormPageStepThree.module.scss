@@ -20,7 +20,28 @@
     }
 
     .buttonsBlock {
+        width: 100%;
         display: flex;
         justify-content: space-between;
+        gap: 20px;
+
+        @media(max-width: 370px) {
+            flex-wrap: wrap;
+
+            .button_back3 {
+
+            }
+            .button_send {
+                width: 100%;
+            }
+
+            > div {
+                button {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
     }
 }
