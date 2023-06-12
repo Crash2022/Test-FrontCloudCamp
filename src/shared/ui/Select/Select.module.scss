@@ -77,3 +77,8 @@ select::-ms-expand {
     font-size: 14px;
     color: red;
 }
+
+.errorSelect {
+    border: 1px solid red;
+    outline: none;
+}

@@ -31,8 +31,7 @@ export const Input: React.FC<InputTextPropsType> = React.forwardRef((
     }, forwardRef
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange
-        && onChange(e)
+        onChange && onChange(e)
         onChangeText && onChangeText(e.currentTarget.value)
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {

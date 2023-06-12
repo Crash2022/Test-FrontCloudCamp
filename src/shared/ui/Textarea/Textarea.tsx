@@ -1,10 +1,4 @@
-import React, {
-    ChangeEvent,
-    DetailedHTMLProps,
-    InputHTMLAttributes,
-    KeyboardEvent,
-    ReactNode
-} from 'react'
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent, ReactNode} from 'react'
 import s from './Textarea.module.scss'
 
 type DefaultInputPropsType = DetailedHTMLProps<
@@ -46,16 +40,19 @@ export const Textarea: React.FC<CustomTextareaPropsType> = ({
         onEnter && e.key === 'Enter' && onEnter()
     }
 
+    const finalTextareaClassName = `${error ? s.errorTextarea : ''} ${className ? className : s.textareaClassName}`
     const finalTextareaDivWrapperClassName = `${divClassName || s.textarea_wrapper}`
 
     return (
         <div className={finalTextareaDivWrapperClassName}>
             <div className={s.placeholder}>{placeholderTitle}</div>
-            <textarea onChange={onChangeCallback} onKeyPress={onKeyPressCallback} {...restProps} />
+            <textarea className={finalTextareaClassName}
+                      onChange={onChangeCallback}
+                      onKeyPress={onKeyPressCallback}
+                      {...restProps}
+            />
             <div className={s.infoSpan}>
                 <div className={s.errorMessage}>{error && error}</div>
-                {/*{error && <div className={s.errorMessage}>{error}</div>}*/}
-
                 {
                     textLength! >= 0 && textMaxLength ?
                         <div className={s.textarea_length}>{textLength} / {textMaxLength}</div>

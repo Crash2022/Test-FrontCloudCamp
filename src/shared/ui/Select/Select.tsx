@@ -24,6 +24,7 @@ export const Select: React.FC<SelectPropsType> = (
         onChange,
         onChangeOption,
         error,
+        className,
         spanClassName,
         ...restProps
     }
@@ -39,6 +40,7 @@ export const Select: React.FC<SelectPropsType> = (
         onChangeOption && onChangeOption(e.currentTarget.value)
     }
 
+    const finalSelectClassName = `${error ? s.errorSelect : ''} ${className ? className : s.select}`
     const finalSpanClassName = `${error ? s.error : ''} ${spanClassName ? spanClassName : ''}`
 
     return (
@@ -46,7 +48,7 @@ export const Select: React.FC<SelectPropsType> = (
             {
                 placeholderTitle ? <div className={s.placeholder_title}>{placeholderTitle}</div> : ''
             }
-            <div className={s.select}>
+            <div className={finalSelectClassName}>
                 <select name={name} id={id} onChange={onChangeCallback} {...restProps}>
                     <option>{placeholder}</option>
                     {mappedOptions}
