@@ -29,7 +29,6 @@
                 @include h2-text-size;
                 margin-bottom: 8px;
             }
-
             .header_infoContacts {
                 display: flex;
                 gap: 18px;
@@ -47,9 +46,21 @@
         .form_phone {
             margin-bottom: var(--default-padding);
         }
-
         .form_email {
             margin-bottom: calc(2 * var(--default-padding));
+        }
+
+        .button_start {
+            @media(max-width: 350px) {
+                width: 100%;
+
+                    button {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                    }
+
+            }
         }
     }
 }

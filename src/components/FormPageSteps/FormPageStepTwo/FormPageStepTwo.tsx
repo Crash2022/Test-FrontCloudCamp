@@ -121,6 +121,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                 <div className={s.buttonsBlock}>
                     <Button
                         id={'button-back2'}
+                        divClassName={s.button_back}
                         theme={'outline'}
                         onClick={() => {
                             setStep('one')
@@ -131,6 +132,7 @@ export const FormPageStepTwo = ({setStep}: FormPageStepsProps) => {
                     </Button>
                     <Button
                         id={'button-next2'}
+                        divClassName={s.button_next}
                         theme={'primary'}
                         type={'submit'}
                     >

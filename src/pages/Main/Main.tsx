@@ -104,6 +104,7 @@ export const Main = () => {
                 />
                 <Button
                     id={'button-start'}
+                    divClassName={s.button_start}
                     theme={'primary'}
                     type={'submit'}
                 >

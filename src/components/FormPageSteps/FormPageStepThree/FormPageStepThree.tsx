@@ -107,7 +107,7 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
             <div className={s.buttonsBlock}>
                 <Button
                     id={'button-back3'}
-                    divClassName={s.button_back3}
+                    divClassName={s.button_back}
                     theme={'outline'}
                     onClick={() => {
                         setStep('two')
@@ -118,7 +118,7 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
                 </Button>
                 <Button
                     id={'button-next3'}
-                    divClassName={s.button_send}
+                    divClassName={s.button_next}
                     theme={'primary'}
                     type={'submit'}
                 >

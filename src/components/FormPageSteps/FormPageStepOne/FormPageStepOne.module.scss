@@ -1,3 +1,5 @@
+@import '../../../shared/styles/mixins';
+
 .formPage_form {
     > div:not(:last-child) {
         margin-bottom: calc(var(--default-padding) * 2);
@@ -16,8 +18,5 @@
         margin-bottom: 88px !important;
     }
 
-    .buttonsBlock {
-        display: flex;
-        justify-content: space-between;
-    }
+    @include buttonsBlock;
 }
