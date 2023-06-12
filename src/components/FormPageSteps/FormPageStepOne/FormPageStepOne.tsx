@@ -24,14 +24,17 @@ export const FormPageStepOne = ({setStep}: FormPageStepsProps) => {
     const FormPageStepOneSchema = yup.object().shape({
         nickname: yup.string()
             .required(validationTitles.required)
+            .trim('')
             .max(validationNumbers.nickname, validationTitles.nicknameMax)
             .matches(onlyLettersDigitsRegExp, {message: validationTitles.notSpecialSymbols, excludeEmptyString: false}),
         name: yup.string()
             .required(validationTitles.required)
+            .trim('')
             .max(validationNumbers.name, validationTitles.nameMax)
             .matches(onlyLettersRegExp, {message: validationTitles.nameOnlyLetters, excludeEmptyString: false}),
         surname: yup.string()
             .required(validationTitles.required)
+            .trim('')
             .max(validationNumbers.surname, validationTitles.nameMax)
             .matches(onlyLettersRegExp, {message: validationTitles.nameOnlyLetters, excludeEmptyString: false}),
         sex: yup.string()
