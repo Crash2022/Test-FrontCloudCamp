@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import {AdvantageType} from '../shared/types/all-types'
 
-type AdvantagesStateType = {
+export type AdvantagesStateType = {
     advantages: AdvantageType[]
 }
 
