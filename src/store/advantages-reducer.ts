@@ -24,8 +24,8 @@ export const advantagesSlice = createSlice({
             const index = state.advantages.findIndex(adv => adv.id === action.payload.id)
             if (index > -1) state.advantages.splice(index, 1)
         },
-        clearAdvantages: (state) => {
-            state.advantages = []
+        clearAdvantages: () => {
+            return initialState
         },
     }
 })
