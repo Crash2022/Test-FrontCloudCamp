@@ -13,20 +13,20 @@ export const advantagesSlice = createSlice({
     name: 'advantages',
     initialState,
     reducers: {
-        addAdvantage: (state: AdvantagesStateType, action: PayloadAction<{ id: string, title: string}>) => {
+        addAdvantage: (state, action: PayloadAction<{ id: string, title: string}>) => {
             state.advantages.push(action.payload)
         },
-        updateAdvantageTitle: (state: AdvantagesStateType, action: PayloadAction<{ id: string, title: string}>) => {
+        updateAdvantageTitle: (state, action: PayloadAction<{ id: string, title: string}>) => {
             const index = state.advantages.findIndex(adv => adv.id === action.payload.id)
             state.advantages[index].title = action.payload.title
         },
-        deleteAdvantage: (state: AdvantagesStateType, action: PayloadAction<{ id: string }>) => {
+        deleteAdvantage: (state, action: PayloadAction<{ id: string }>) => {
             const index = state.advantages.findIndex(adv => adv.id === action.payload.id)
             if (index > -1) {
                 state.advantages.splice(index, 1)
             }
         },
-        clearAdvantages: (state: AdvantagesStateType) => {
+        clearAdvantages: (state) => {
             state.advantages = []
         },
     }
