@@ -8,7 +8,7 @@ import SuccessIcon from '../../shared/assets/icons/success-icon.svg'
 import ErrorIcon from '../../shared/assets/icons/error-icon.svg'
 import CancelIcon from '../../shared/assets/icons/cancel-icon.svg'
 import {useAppDispatch} from "../../shared/hooks/useAppDispatch"
-import {clearAdvantages} from "../../store/advantages-slice"
+import {clearAdvantages} from "../../store/advantages-reducer"
 
 interface MessageModalProps {
     open: boolean

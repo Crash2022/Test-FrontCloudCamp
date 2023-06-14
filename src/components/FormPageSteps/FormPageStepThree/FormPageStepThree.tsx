@@ -53,7 +53,7 @@ export const FormPageStepThree = ({setStep, setFormData, isError, isSuccess, isL
                 sex: localStorage.getItem('sex'),
                 about: localStorage.getItem('about')
             })
-            console.log(response)
+            // console.log(response)
         } catch (error) {
             console.log(error)
         }

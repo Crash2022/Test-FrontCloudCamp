@@ -1,6 +1,6 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import {formPageAPI} from '../services/FormPageService'
-import {advantagesReducer} from './advantages-slice'
+import {advantagesReducer} from './advantages-reducer'
 import {persistStore, persistReducer,
     FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
