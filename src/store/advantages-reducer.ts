@@ -22,9 +22,7 @@ export const advantagesSlice = createSlice({
         },
         deleteAdvantage: (state, action: PayloadAction<{ id: string }>) => {
             const index = state.advantages.findIndex(adv => adv.id === action.payload.id)
-            if (index > -1) {
-                state.advantages.splice(index, 1)
-            }
+            if (index > -1) state.advantages.splice(index, 1)
         },
         clearAdvantages: (state) => {
             state.advantages = []
